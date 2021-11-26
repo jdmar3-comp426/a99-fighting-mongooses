@@ -3,6 +3,7 @@
 
 COMP426 final project template repository. All your code and documentation goes here. Change this text to be a brief description of your final project. Put the name in the header above. You will change everything below to be the main technical documentation, as outlined below.
 
+Testing if others can see this.
 ## First steps
 
 Other steps that you will need to take after you have cloned this repository:
