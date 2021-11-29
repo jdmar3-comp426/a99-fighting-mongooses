@@ -54,6 +54,6 @@ const verifyUser = (req, res, next) => {
 app.use('/app/', indexRouter);
 app.use('/app/users', usersRouter);
 app.use('/app/login', loginRouter);
-app.user('/app/results', resultsRouter);
+app.use('/app/results', resultsRouter);
 
 module.exports = app;
