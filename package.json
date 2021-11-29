@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx browser-sync ./front-end/ -sw",
-    "dev": "concurrently \"npx nodemon ./webserver/app.js\" \"npx browser-sync ./front-end/ -sw\" ","install": "",
+    "dev": "concurrently \"npx nodemon ./webserver/app.js\" \"npx browser-sync ./front-end/ -sw\" ",
+    "install": "",
     "postinstall": "cd ./front-end && npm install && cd ../webserver && npm install"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/jdmar3-comp426/a99-fighting-mongooses#readme",
   "dependencies": {
-    "browser-sync": "^2.27.7"
+    "browser-sync": "^2.27.7",
+    "concurrently": "^6.4.0"
   }
 }
