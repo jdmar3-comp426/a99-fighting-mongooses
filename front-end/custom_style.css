@@ -1,16 +1,18 @@
 html, body{
     height: 100%;
     font-size: 1.1em;
-    background-color:antiquewhite;
+    background-color:rgb(157, 235, 178);
 }
-h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:xx-large;
-    text-align: center;
+
+.title{
+    font-size: 2.8em !important;
 }
-h1:hover{
-    color:darkcyan;
+
+strong{
+    color:rgb(3, 45, 66) !important;
 }
+
+
 button{
     display: inline-block;
     position: absolute;
@@ -32,4 +34,29 @@ img{
     border-radius: 75px;
     margin-top: 300px;
     margin-left: 770px;
+}
+ul{
+    background-color: #f1f1f1;
+    padding: 0;
+    margin: 0;
+}
+
+.justify-center .column{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+
+img {
+    height: 300px !important;
+    width: 300px !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    min-width: 300px;
+    margin: .3em;
+}
+
+img:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transform: scale(1.05);
 }
