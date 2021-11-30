@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
+const resultsRouter = require('./routes/results');
 
 var app = express();
 
@@ -53,5 +54,6 @@ const verifyUser = (req, res, next) => {
 app.use('/app/', indexRouter);
 app.use('/app/users', usersRouter);
 app.use('/app/login', loginRouter);
+app.use('/app/results', resultsRouter);
 
 module.exports = app;
