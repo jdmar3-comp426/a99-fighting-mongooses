@@ -8,6 +8,14 @@ Dependencies
     express: 4.17.1
     better-sqlite3: 7.4.5
     md5: 2.3.0
+    morgan: 1.9.1
+    jsonwebtoken: 8.5.1
+    cookie-parser: 1.4.4
+    crypto: 1.0.1
+    debug: 2.6.9
+    bulma: 0.9.3
+    concurrently: 6.4.0
+    cors: 2.8.5
 
 Licensing
     license: GNU General Public License v3.0 only - GPL-3.0-only
@@ -270,3 +278,102 @@ Database
         The user.db file stores database information.
 
         The user.db file is not accessible by developers or users.
+
+Front-end
+
+    Question and Answer Calculation:
+
+        There are 15 questions, allowing for 15 points to be earned upon completion of the questionnaire.
+        Point calculation is show next to each question. Whichever category has the most points is stored to
+        the resultinfo table.
+
+        Questions (15):
+
+        What is your favorite animal? 
+            A. Proud Lions. 
+            B. Sneaky Serpents.
+            C.Eager Eagles 
+            D. Brawn Badgers 
+
+        If you see a criminal on the street, what do you do?
+            A: Go fight the criminal as a vigilante (Brawn Badgers +1 point)
+            B: Follow the criminal (Sneaky Serpent +1 point)
+            C: Call the police like a proper citizen (Proud Lions +1 point)
+            D: Question the criminal and ask him what he is doing (Eager Eagles +1 point)
+
+        If you were a school principal, how would you select your students?
+            A.Select based on a challenging academic exam (Eager Eagles +1 point)
+            B.By merits and virtues a student presents (Proud Lions +1 point)
+            C.By a psychological tests (Sneaky Serpent +1 point)
+            D.Chose them randomly without any biases (Brawn Badgers +1 point)
+
+        How do your friends describe you?
+            A. Rigorous (Proud Lions +1 point)
+            B. Hardworking (Brawn Badgers +1 point)
+            C. Mysterious (Sneaky Serpent +1 point)
+            D. Brave (Eager Eagles +1 point)
+ 
+        What is your favorite film genre?
+            A. Documentary (Proud Lions +1 point)
+            B. Fiction (Brawn Badgers +1 point)
+            C. Action (Eager Eagles +1 point)
+            D. Thriller  (Sneaky Serpent +1 point)
+
+        What is your favorite color?
+            A. Mysterious Black   
+            B.Royal Gold  
+            C. Emerald Green 
+            D. Scarlet Red
+
+        You and your friends went to a forest camp and a wild animal is threatening you. What would you do?
+            A. Fight bravely and recklessness by myself (Brawn Badgers +1 point)
+            B. Fight together with my friends (Proud Lions +1 point)
+            C. I will bring the animal near a trap  (Eager Eagles +1 point)
+            D. I will run away to save myself (Sneaky Serpent +1 point)
+        What is your favorite season?
+            A. Spring (Brawn Badgers +1 point)
+            B. Summer (Proud Lions +1 point)
+            C. Fall (Sneaky Serpent +1 point)
+            D. Winter (Eager Eagles +1 point)
+
+        What will be your dream vacation?
+            A. Safari in Africa grassland (Proud Lions +1 point)
+            B. Skydiving in New Zealand (Eager Eagles +1 point)
+            C. Luxurious retreat by the sea  (Brawn Badgers +1 point)
+            D. Glamping in the remote mountain (Sneaky Serpent +1 point)
+
+        If you can have a superpower, what will it be?
+            A. Flying (Eager Eagles +1 point)
+            B. Super Speed (Brawn Badgers +1 point)
+            C. Time Travel (Proud Lions +1 point)
+            D. Become Invisible (Sneaky Serpent +1 point)
+
+        Which of the following elements are the most appealing to you?
+            A. Air  
+            B. Water 
+            C. Wood 
+            D. Earth
+
+        After a long stressful day, what would you eat?
+            A. Something I cooked myself (Eager Eagles +1 point)
+            B. My favorite treat food - I know what will make me feel better (Sneaky Serpent +1 point)
+            C. Whatever I usually eat, I do not do stress eating (Proud Lions +1 point)
+            D. Everything in sight - I need to have it right away  (Brawn Badgers +1 point)
+
+        You are going to have a challenging exam tomorrow, what would you do?
+            A. Study alone by myself (Eager Eagles +1 point)
+            B. Study in group with friend (Brawn Badgers +1 point)
+            C. See if it is possible to take some short cut and make some cheat sheets(Sneaky Serpent +1 point)
+            D. I do not study extra for it. It is what it is (Proud Lions +1 point)
+
+        What is your favorite weather?
+            A. Warm and Sunny (Proud Lions +1 point)
+            B. Cold and Rainy (Sneaky Serpent +1 point)
+            C. Windy and Chilly (Eager Eagles +1 point)
+            D. Cloudy and dry (Brawn Badgers +1 point)
+
+        You are nor expecting anything but receiving a package at your door. What do you think it will be?
+            A. A prank from your neighbors (Sneaky Serpent +1 point)
+            B. A surprising gift from a friend (Proud Lions +1 point)
+            C. Something delivered to the wrong address (Eager Eagles +1 point)
+            D. Something you ordered long ago but forgot (Brawn Badgers +1 point)
