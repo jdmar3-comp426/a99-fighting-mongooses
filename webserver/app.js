@@ -36,29 +36,29 @@ app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
-const verifyToken = (req) => {
-    const token = req.cookies.token;
-    if (!token) return {code: 500, message: "Missing token"}
-    try {
-      const user = jwt.verify(token, SECRET);
-      if (user) {
-        req.currentUser = user;
-        return { code: 200, message: "OK" }
-      }
-    } catch (err){
-      return {code: 401, message: err.message}
-    }
-}
-const verifyUser = (req, res, next) => {
-    if (req.path === '/app/login' || req.path === '/app/users/add') return next();
-    const result = verifyToken(req, res);
-    if (result.code === 200) next();
-    else {
-      res.status(result.code);
-      res.send(result.message);
-    }
-  }
-  app.all('*', verifyUser);
+// const verifyToken = (req) => {
+//     const token = req.cookies.token;
+//     if (!token) return {code: 500, message: "Missing token"}
+//     try {
+//       const user = jwt.verify(token, SECRET);
+//       if (user) {
+//         req.currentUser = user;
+//         return { code: 200, message: "OK" }
+//       }
+//     } catch (err){
+//       return {code: 401, message: err.message}
+//     }
+// }
+// const verifyUser = (req, res, next) => {
+//     if (req.path === '/app/login' || req.path === '/app/users/add') return next();
+//     const result = verifyToken(req, res);
+//     if (result.code === 200) next();
+//     else {
+//       res.status(result.code);
+//       res.send(result.message);
+//     }
+//   }
+// app.all('*', verifyUser);
 
 app.use('/app/', indexRouter);
 app.use('/app/users', usersRouter);
