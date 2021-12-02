@@ -1,21 +1,66 @@
 const registrationForm = document.querySelector('#registration');
 const loginForm = document.querySelector('#login');
 
+let loggedIn = false;
+let username = '';
+
 // hides the dashboard by default
 document.querySelector('#dashboard').style.display = "none";
 
 const showDashboard = () => {
+    loggedIn = true;
     document.querySelector('#registrationForm').style.display = "none";
     document.querySelector('#loginForm').style.display = "none";
     const dashboard = document.querySelector('#dashboard');
     dashboard.style.display = "block";
     dashboard.style.height = "100hv"
     dashboard.scrollIntoView();
+    const usernameDisplay = document.querySelector('#username_display');
+    usernameDisplay.innerHTML = "Welcome, " + username;
+    loadUsersResults();
+}
+
+const saveUsersResults = async (result) => {
+    const url = 'http://localhost:5000/app/results/add';
+    const payload = JSON.stringify({
+        username: username,
+        result: result
+    });
+    const results = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: payload
+    })
+    if (results.status === 200) {
+         showDashboard();
+    } else {
+        // do something for errors
+    }
+}
+
+const loadUsersResults = async (result) => {
+    const url = 'http://localhost:5000/app/results/' + username;
+    const results = await fetch(url, {
+        method: 'GET',
+        mode: "cors",
+        headers: {
+            'Cache-Control': 'no-cache' 
+        }
+    })
+    if (results.status === 200) {
+        let result = await results.json()
+        const resultsDisplay = document.querySelector('#result_display');
+        resultsDisplay.innerHTML = "Your most recent result: " + result.result;
+    }
 }
 
 registrationForm.addEventListener('submit', async (e) => {
     
     e.preventDefault();
+    username = e.target.regusername.value;
     const url = 'http://localhost:5000/app/users/add';
     const payload = JSON.stringify({
         username: e.target.regusername.value,
@@ -38,6 +83,7 @@ registrationForm.addEventListener('submit', async (e) => {
 
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    username = e.target.username.value;
     const url = 'http://localhost:5000/app/login'
     const data = new FormData(e.target);
     const payload = JSON.stringify({
@@ -109,4 +155,5 @@ quizbtn.onclick = function () {
     }
     //the var "result" holds the value of the user's animal result
     alert("Voolla! You're quiz game result is " + result);
+    if (loggedIn) saveUsersResults(result);
 };

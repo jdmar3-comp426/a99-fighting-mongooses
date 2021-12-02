@@ -3,17 +3,17 @@ var router = express.Router();
 const db = require('../database');
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get("/:username", function (req, res, next) {
   // gets result that matches the userid eg: SELECT * WHERE userid = ?
-  const body = req.body;
-  const username = body.username;
+  const username = req.params.username;
   const user = db
     .prepare("SELECT id FROM userinfo WHERE user = ?")
     .get(username);
   const result = db
     .prepare("SELECT result FROM resultinfo WHERE userId = ?")
     .get(user.id);
-  res.status(200).json(result);
+  res.status(200);
+  res.send(result);
 });
 
 router.post("/add", function (req, res, next) {
