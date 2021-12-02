@@ -67,21 +67,21 @@ const quizbtn = document.querySelector('#quizbtn');
 quizbtn.onclick = function () {
     const radiobuttons = document.querySelectorAll('input[name="answer"]');
     let result;
-    let array = []
+    let array = [0, 0, 0, 0]
     console.log(radiobuttons);
     console.log(radiobuttons[0])
     for (const radiobtn of radiobuttons) {
         if (radiobtn.checked) {
-            if(radiobtn.value = "lion"){
+            if(radiobtn.value == "lion"){
                 array[0] += 1
             }
-            else if(radiobtn.value = "serpent"){
+            else if(radiobtn.value == "serpent"){
                 array[1] += 1
             }
-            else if(radiobtn.value = "eagle"){
+            else if(radiobtn.value == "eagle"){
                 array[2] += 1
             }
-            else if(radiobtn.value = "badger"){
+            else if(radiobtn.value == "badger"){
                 array[3] += 1
             }
         }
@@ -96,18 +96,18 @@ quizbtn.onclick = function () {
         }
     }
     
-    if(base = 0){
-        result = "lion"
+    if(base == 0){
+        result = "Lion"
     }
-    else if(base = 1){
-        result = "serpent"
+    else if(base == 1){
+        result = "Serpent"
     }
-    else if(base = 2){
-        result = "eagle"
+    else if(base == 2){
+        result = "Eagle"
     }
-    else if(base = 3){
-        result = "badger"
+    else if(base == 3){
+        result = "Badger"
     }
-
-    alert(result);
+    //the var "result" holds the value of the user's animal result
+    alert("Voolla! You're quiz game result is " + result);
 };

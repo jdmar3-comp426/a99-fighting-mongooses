@@ -1,670 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
-    <link rel="stylesheet" href="custom_style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap"
-      rel="stylesheet"
-    />
-    <title>426 Final Project</title>
-  </head>
 
-  <body>
-    <section class="section pb-1">
-      <div class="container">
-        <div class="content has-text-centered">
-          <h1 class="title has-text-weight-normal">Fighting Mongooses</h1>
-          <h2 class="subtitle has-text-weight-normal pt-4">
-            Sorting Hat Game: <strong>Animal Edition</strong>
-          </h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
+  <link rel="stylesheet" href="custom_style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet" />
+  <title>426 Final Project</title>
+</head>
+
+<body>
+  <section class="section pb-1">
+    <div class="container">
+      <div class="content has-text-centered">
+        <h1 class="title has-text-weight-normal">Fighting Mongooses</h1>
+        <h2 class="subtitle has-text-weight-normal pt-4">
+          Sorting Hat Game: <strong>Animal Edition</strong>
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section class="section pb-1 pt-5">
+    <div class="container">
+      <div class="content">
+        <h3 class="subtitle has-text-weight-normal">
+          Play To Find Out Your Inner Animal
+        </h3>
+      </div>
+      <div class="columns is-multiline justify-center">
+        <div class="column">
+          <img src="images/thelion.png" alt="Lion" />
+        </div>
+        <div class="column">
+          <img src="images/snakey.png" alt="serpent" />
+        </div>
+        <div class="column">
+          <img src="images/theeagle.png" alt="Eagle" />
+        </div>
+        <div class="column">
+          <img src="images/badger.png" alt="Badger" />
         </div>
       </div>
-    </section>
-    <section class="section pb-1 pt-5">
-      <div class="container">
-        <div class="content">
-          <h3 class="subtitle has-text-weight-normal">
-            Play To Find Out Your Inner Animal
-          </h3>
+      <div class="columns justify-center">
+        <div class="column">
+          <h4 class="subtitle">Lion</h4>
         </div>
-        <div class="columns is-multiline justify-center">
-          <div class="column">
-            <img src="images/thelion.png" alt="Lion" />
-          </div>
-          <div class="column">
-            <img src="images/snakey.png" alt="serpent" />
-          </div>
-          <div class="column">
-            <img src="images/theeagle.png" alt="Eagle" />
-          </div>
-          <div class="column">
-            <img src="images/badger.png" alt="Badger" />
-          </div>
+        <div class="column">
+          <h4 class="subtitle">Serpent</h4>
         </div>
-        <div class="columns justify-center">
-          <div class="column">
-            <h4 class="subtitle">Lion</h4>
-          </div>
-          <div class="column">
-            <h4 class="subtitle">Serpent</h4>
-          </div>
-          <div class="column">
-            <h4 class="subtitle">Eagle</h4>
-          </div>
-          <div class="column">
-            <h4 class="subtitle">Badger</h4>
-          </div>
+        <div class="column">
+          <h4 class="subtitle">Eagle</h4>
+        </div>
+        <div class="column">
+          <h4 class="subtitle">Badger</h4>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section pb-1">
-      <div class="container">
-        <div class="columns">
-          <div class="column">
-            <div class="content">
-              <h3 class="subtitle has-text-weight-normal">
-                Fill out the quiz game!
-              </h3>
-            </div>
-            <div class="content">
-              <ol>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    What is your favorite animal?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Lion
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Serpent
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Eagle
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Badger
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    If you see a criminal on the street, what do you do?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Go fight the criminal as a vigilante
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Follow the criminal
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Call the police like a proper citizen
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Question the criminal and ask him what he is doing
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    If you were a school principal, how would you select your
-                    students?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Select based on a challenging academic exam
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          By merits and virtues a student presents
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          By a psychological tests
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Chose them randomly without any biases
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    How do your friends describe you?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Rigorous
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Hardworking
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Mysterious
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Brave
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    What is your favorite film genre?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Documentary
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Fiction
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Action
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Thriller
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    What is your favorite color?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Mysterious Black
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Royal Gold
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Emerald Green
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Scarlet Red
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    You and your friends went to a forest camp and a wild animal
-                    is threatening you. What would you do?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Fight bravely and recklessness by myself
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Fight together with my friends
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          I will bring the animal near a trap
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          I will run away to save myself
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    What is your favorite season?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Spring
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Summer
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent" />
-                          Fall
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Winter
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    What will be your dream vacation?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Safari in Africa grassland
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Skydiving in New Zealand
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Luxurious retreat by the sea
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Glamping in the remote mountain
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    If you can have a superpower, what will it be?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Flying
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Super Speed
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Time Travel
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Become Invisible
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    Which of the following elements are the most appealing to
-                    you?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Air
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Water
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Wood
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Earth
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    After a long stressful day, what would you eat?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Something I cooked myself
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          My favorite treat food - I know what will make me feel
-                          better
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Whatever I usually eat, I do not do stress eating
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Everything in sight - I need to have it right away
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    You are going to have a challenging exam tomorrow, what
-                    would you do?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Study alone by myself
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Study in group with friend
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          See if it is possible to take some short cut and make
-                          some cheat sheets
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          I do not study extra for it. It is what it is...
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    What is your favorite weather?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          Warm and Sunny
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          Cold and Rainy
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Windy and Chilly
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Cloudy and dry
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-                <li>
-                  <h5 class="subtitle has-text-weight-normal mb-3">
-                    You are nor expecting anything but receiving a package at
-                    your door. What do you think it will be?
-                  </h5>
-                  <form>
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="answer" value="serpent"/>
-                          A prank from your neighbors
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="lion"/>
-                          A surprising gift from a friend
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="eagle"/>
-                          Something delivered to the wrong address
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input type="radio" name="answer" value="badger"/>
-                          Something you ordered long ago but forgot
-                        </label>
-                      </div>
-                    </div>
-                    <div class="field">
-                      <div class="control">
-                        <button
-                          class="button is-dark m-5 ml-auto"
-                          type="submit"
-                          id="quizbtn"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-              </ol>
-            </div>
+  <section class="section pb-1">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="content">
+            <h3 class="subtitle has-text-weight-normal">
+              Fill out the quiz game!
+            </h3>
           </div>
-          <div class="column">
-            <div id="registrationForm">
-              <div class="content">
-                <h3 class="subtitle has-text-weight-normal">
-                  Sign Up Or Log In To Save Your Data
-                </h3>
-              </div>
-              <div class="content">
-                <h5 class="subtitle has-text-weight-normal mb-3">Sign Up</h5>
-                <form id="registration">
+          <div class="content">
+            <ol>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  What is your favorite animal?
+                </h5>
+                <form>
                   <div class="field">
-                    <label class="label">Username</label>
                     <div class="control">
-                      <input
-                        id="regusername"
-                        class="input"
-                        type="text"
-                        placeholder="Enter Username"
-                        name="username"
-                      />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Lion
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Serpent
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Eagle
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Badger
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  If you see a criminal on the street, what do you do?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Go fight the criminal as a vigilante
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Follow the criminal
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Call the police like a proper citizen
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Question the criminal and ask him what he is doing
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  If you were a school principal, how would you select your
+                  students?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Select based on a challenging academic exam
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        By merits and virtues a student presents
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        By a psychological tests
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Chose them randomly without any biases
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  How do your friends describe you?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Rigorous
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Hardworking
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Mysterious
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Brave
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  What is your favorite film genre?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Documentary
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Fiction
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Action
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Thriller
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  What is your favorite color?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Mysterious Black
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Royal Gold
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Emerald Green
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Scarlet Red
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  You and your friends went to a forest camp and a wild animal
+                  is threatening you. What would you do?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Fight bravely and recklessness by myself
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Fight together with my friends
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        I will bring the animal near a trap
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        I will run away to save myself
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  What is your favorite season?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Spring
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Summer
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Fall
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Winter
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  What will be your dream vacation?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Safari in Africa grassland
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Skydiving in New Zealand
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Luxurious retreat by the sea
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Glamping in the remote mountain
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  If you can have a superpower, what will it be?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Flying
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Super Speed
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Time Travel
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Become Invisible
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  Which of the following elements are the most appealing to
+                  you?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Air
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Water
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Wood
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Earth
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  After a long stressful day, what would you eat?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Something I cooked myself
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        My favorite treat food - I know what will make me feel
+                        better
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Whatever I usually eat, I do not do stress eating
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Everything in sight - I need to have it right away
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  You are going to have a challenging exam tomorrow, what
+                  would you do?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Study alone by myself
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Study in group with friend
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        See if it is possible to take some short cut and make
+                        some cheat sheets
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        I do not study extra for it. It is what it is...
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  What is your favorite weather?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        Warm and Sunny
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        Cold and Rainy
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Windy and Chilly
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Cloudy and dry
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </li>
+              <li>
+                <h5 class="subtitle has-text-weight-normal mb-3">
+                  You are nor expecting anything but receiving a package at
+                  your door. What do you think it will be?
+                </h5>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" value="serpent" />
+                        A prank from your neighbors
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="lion" />
+                        A surprising gift from a friend
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="eagle" />
+                        Something delivered to the wrong address
+                      </label>
+                      <br />
+                      <label class="radio">
+                        <input type="radio" name="answer" value="badger" />
+                        Something you ordered long ago but forgot
+                      </label>
                     </div>
                   </div>
                   <div class="field">
-                    <label class="label">Password</label>
                     <div class="control">
-                      <input
-                        id="regpassword"
-                        class="input"
-                        type="password"
-                        placeholder="Enter Password"
-                      />
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label class="label">Repeat Password</label>
-                    <div class="control">
-                      <input
-                        class="input"
-                        type="password"
-                        placeholder="Enter Password Again"
-                        name="password"
-                      />
-                    </div>
-                  </div>
-                  <div class="field">
-                    <div class="control">
-                      <button
-                        class="registration button is-dark m-5 ml-auto"
-                        type="submit">
-                        Register
+                      <button class="button is-dark m-5 ml-auto" type="submit" id="quizbtn">
+                        Submit
                       </button>
                     </div>
                   </div>
                 </form>
-              </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="column">
+          <div id="registrationForm">
+            <div class="content">
+              <h3 class="subtitle has-text-weight-normal">
+                Sign Up Or Log In To Save Your Data
+              </h3>
             </div>
-            <div id="loginForm">
-              <h5 class="subtitle has-text-weight-normal mb-3">Log In</h5>
-              <form id="login">
+            <div class="content">
+              <h5 class="subtitle has-text-weight-normal mb-3">Sign Up</h5>
+              <form id="registration">
                 <div class="field">
                   <label class="label">Username</label>
                   <div class="control">
-                    <input
-                      id="username"
-                      class="input"
-                      type="text"
-                      placeholder="Enter Username"
-                      name="username"
-                    />
+                    <input id="regusername" class="input" type="text" placeholder="Enter Username" name="username" />
                   </div>
                 </div>
                 <div class="field">
                   <label class="label">Password</label>
                   <div class="control">
-                    <input
-                      id="password"
-                      class="input"
-                      type="password"
-                      placeholder="Enter Password"
-                      name="password"
-                    />
+                    <input id="regpassword" class="input" type="password" placeholder="Enter Password" />
                   </div>
                 </div>
-
+                <div class="field">
+                  <label class="label">Repeat Password</label>
+                  <div class="control">
+                    <input class="input" type="password" placeholder="Enter Password Again" name="password" />
+                  </div>
+                </div>
                 <div class="field">
                   <div class="control">
-                    <button class="button is-dark m-5 ml-auto" type="submit">
-                      Login
+                    <button class="registration button is-dark m-5 ml-auto" type="submit">
+                      Register
                     </button>
                   </div>
                 </div>
               </form>
             </div>
-            <div id="dashboard">
-              <section>
-                <div class="content">
-                  <h3 class="subtitle has-text-weight-normal">
-                    Welcome, "Username"
-                  </h3>
+          </div>
+          <div id="loginForm">
+            <h5 class="subtitle has-text-weight-normal mb-3">Log In</h5>
+            <form id="login">
+              <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                  <input id="username" class="input" type="text" placeholder="Enter Username" name="username" />
                 </div>
-                <div class="content">
-                  <h4 class="subtitle has-text-weight-normal">
-                    Last Result: 
-                  </h4>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input id="password" class="input" type="password" placeholder="Enter Password" name="password" />
                 </div>
-              </section>
-              
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p>
-              <span><a href="">delete account</a></span>
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <button class="button is-dark m-5 ml-auto" type="submit">
+                    Login
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="dashboard">
+            <section>
+              <div class="content">
+                <h3 class="subtitle has-text-weight-normal">
+                  Welcome, "Username"
+                </h3>
+              </div>
+              <div class="content">
+                <h4 class="subtitle has-text-weight-normal">
+                  Last Result:
+                </h4>
+
+              </div>
+            </section>
+
+            <p>
+              "Future: Add Para-Describing What It Means To Be That Animal (Daisy Has To Write) , and a simple
+              javascript function can check what is the word next to Last Result: is and can be filled out
+            </p>
+
+            <div class="field is-inline-block">
+              <div class="control">
+                <button class="button is-dark m-5 ml-auto" type="submit">
+                  Logout
+                </button>
+              </div>
             </div>
+
+            <div class="field is-inline-block">
+              <div class="control">
+                <button class="button is-danger  m-5 ml-auto" type="submit">
+                  Delete Account
+                </button>
+              </div>
+            </div>
+            <span class="is-block"></span>
+            <!--- Line allows for any future additions to not become inline-->
+
           </div>
         </div>
       </div>
-    </section>
-    <script src="logic.js"></script>
-  </body>
+    </div>
+  </section>
+  <script src="logic.js"></script>
+</body>
+
 </html>
