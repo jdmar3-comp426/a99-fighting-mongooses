@@ -2,7 +2,7 @@ const registrationForm = document.querySelector('#registration');
 const loginForm = document.querySelector('#login');
 
 // hides the dashboard by default
-document.querySelector('#dashboard').style.display = "none";
+//document.querySelector('#dashboard').style.display = "none";
 
 const showDashboard = () => {
     document.querySelector('#registrationForm').style.display = "none";
