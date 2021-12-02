@@ -61,15 +61,14 @@ loginForm.addEventListener('submit', async (e) => {
 
 
 //Quiz Logic
-console.log("reached")
+
 const quizbtn = document.querySelector('#quizbtn');
 
 quizbtn.onclick = function () {
     const radiobuttons = document.querySelectorAll('input[name="answer"]');
     let result;
     let array = [0, 0, 0, 0]
-    console.log(radiobuttons);
-    console.log(radiobuttons[0])
+    
     for (const radiobtn of radiobuttons) {
         if (radiobtn.checked) {
             if(radiobtn.value == "lion"){
