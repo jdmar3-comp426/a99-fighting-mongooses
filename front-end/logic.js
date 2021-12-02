@@ -58,3 +58,55 @@ loginForm.addEventListener('submit', async (e) => {
         // do something if there is an error
     }
 })
+
+
+//Quiz Logic
+
+const quizbtn = document.querySelector('#quizbtn');
+
+quizbtn.onclick = function () {
+    const radiobuttons = document.querySelectorAll('input[name="answer"]');
+    let result;
+    let array = [0, 0, 0, 0]
+    
+    for (const radiobtn of radiobuttons) {
+        if (radiobtn.checked) {
+            if(radiobtn.value == "lion"){
+                array[0] += 1
+            }
+            else if(radiobtn.value == "serpent"){
+                array[1] += 1
+            }
+            else if(radiobtn.value == "eagle"){
+                array[2] += 1
+            }
+            else if(radiobtn.value == "badger"){
+                array[3] += 1
+            }
+        }
+    }
+    console.log(array)
+    let base = 0;
+    let baseval = array[base];
+    for(let i = 0; i < array.length; i++){
+        if(array[i] > baseval){
+            base = i;
+            baseval = array[i];
+        }
+    }
+    
+    if(base == 0){
+        result = "Lion"
+    }
+    else if(base == 1){
+        result = "Serpent"
+    }
+    else if(base == 2){
+        result = "Eagle"
+    }
+    else if(base == 3){
+        result = "Badger"
+    }
+    //the var "result" holds the value of the user's animal result
+    alert("Voolla! You're quiz game result is " + result);
+};
