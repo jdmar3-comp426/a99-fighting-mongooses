@@ -547,6 +547,7 @@
             <div class="content">
               <h5 class="subtitle has-text-weight-normal mb-3">Sign Up</h5>
               <form id="registration">
+                <label id="takenUsername" class="has-text-danger has-text-weight-semibold" for="takenUsername">Username already taken</label>
                 <div class="field">
                   <label class="label">Username</label>
                   <div class="control">
@@ -562,7 +563,7 @@
                 <div class="field">
                   <label class="label">Repeat Password</label>
                   <div class="control">
-                    <input class="input" type="password" placeholder="Enter Password Again" name="password" />
+                    <input id="regpasswordconfirm" class="input" type="password" placeholder="Enter Password Again" name="password" />
                   </div>
                 </div>
                 <div class="field">
@@ -578,6 +579,7 @@
           <div id="loginForm">
             <h5 class="subtitle has-text-weight-normal mb-3">Log In</h5>
             <form id="login">
+              <label id="incorrect_password" class="has-text-danger has-text-weight-semibold	" for="incorrect_password">Incorrect password and/or username</label>
               <div class="field">
                 <label class="label">Username</label>
                 <div class="control">

@@ -1,11 +1,22 @@
 const registrationForm = document.querySelector('#registration');
 const loginForm = document.querySelector('#login');
 
+// finds and saves the registration password and confirmation password inputs as variables
+const regPassword = document.querySelector('#regpassword');
+const regConfirmPassword = document.querySelector('#regpasswordconfirm');
+
+
 let loggedIn = false;
 let username = '';
+let usernameValid = false;
+let passwordValid = false;
 
 // hides the dashboard by default
 document.querySelector('#dashboard').style.display = "none";
+// hides the incorrect password label by default
+document.querySelector('#incorrect_password').style.display = "none";
+// hides the taken username label by default
+document.querySelector('#takenUsername').style.display = "none";
 
 const showDashboard = () => {
     loggedIn = true;
@@ -29,6 +40,7 @@ const saveUsersResults = async (result) => {
     const results = await fetch(url, {
         method: 'POST',
         mode: 'cors',
+        credentials: "omit",
         headers: {
             'Content-Type': 'application/json'
         },
@@ -46,6 +58,7 @@ const loadUsersResults = async (result) => {
     const results = await fetch(url, {
         method: 'GET',
         mode: "cors",
+        credentials: "omit",
         headers: {
             'Cache-Control': 'no-cache' 
         }
@@ -60,24 +73,33 @@ const loadUsersResults = async (result) => {
 registrationForm.addEventListener('submit', async (e) => {
     
     e.preventDefault();
-    username = e.target.regusername.value;
-    const url = 'http://localhost:5000/app/users/add';
-    const payload = JSON.stringify({
-        username: e.target.regusername.value,
-        password: e.target.regpassword.value
-    });
-    const results = await fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: payload
-    })
-    if (results.status === 201) {
-        showDashboard();
-    } else {
-        // do something if there is an error
+    if (usernameValid && passwordValid) {
+        try {
+            username = e.target.regusername.value;
+        const url = 'http://localhost:5000/app/users/add';
+        const payload = JSON.stringify({
+            username: e.target.regusername.value,
+            password: e.target.regpassword.value
+        });
+        const results = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            credentials: "omit",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: payload
+        })
+        if (results.status === 201) {
+            showDashboard();
+        } else if (results.status === 409){
+            document.querySelector('#takenUsername').style.display = "block";
+        } else {
+            throw results.status;
+        }
+            } catch (err) {
+                console.log("Error: " + err.message);
+        }
     }
 })
 
@@ -101,9 +123,41 @@ loginForm.addEventListener('submit', async (e) => {
     if (result.status === 200) {
         showDashboard();
     } else {
-        // do something if there is an error
+        document.querySelector('#incorrect_password').style.display = "block";
     }
 })
+
+regusername.addEventListener('input', (event) => {
+    if (regusername.value.length < 5) {
+        regusername.classList.add('is-danger');
+    } else {
+        usernameValid = true;
+        regusername.classList.remove('is-danger')
+    }
+});
+
+regPassword.addEventListener('input', (event) => {
+    if (regPassword.value.length < 6) {
+        passwordValid = false;
+        regPassword.classList.add('is-danger');
+    } else {
+        regPassword.classList.remove('is-danger')
+        if (regPassword.value === regConfirmPassword.value) {
+            regConfirmPassword.classList.remove('is-danger');
+            passwordValid = true;
+        }
+    }
+});
+
+regConfirmPassword.addEventListener('input', (event) => {
+    if (regConfirmPassword.value.length < 6 || regPassword.value !== regConfirmPassword.value) {
+        regConfirmPassword.classList.add('is-danger');
+        passwordValid = false;
+    } else {
+        regConfirmPassword.classList.remove('is-danger');
+        passwordValid = true;
+    }
+});
 
 
 //Quiz Logic
