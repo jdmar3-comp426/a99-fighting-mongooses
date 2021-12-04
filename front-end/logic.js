@@ -10,7 +10,7 @@ document.querySelector("#quizColumn").style.display = "none";
 const regPassword = document.querySelector("#regpassword");
 const regConfirmPassword = document.querySelector("#regpasswordconfirm");
 
-let loggedIn = false;
+let loggedIn;
 let username = "";
 let usernameValid = false;
 let passwordValid = false;
@@ -106,6 +106,7 @@ registrationForm.addEventListener("submit", async (e) => {
         body: payload,
       });
       if (results.status === 201) {
+        login(username);
         showDashboard();
       } else if (results.status === 409) {
         document.querySelector("#takenUsername").style.display = "block";
@@ -218,6 +219,7 @@ const showDashboard = () => {
 
 const login = (user) => {
     username = user;
+    loggedIn = true;
     localStorage.setItem('loggedIn', true);
     localStorage.setItem('username', username);
 }
