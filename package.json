@@ -9,8 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx browser-sync ./front-end/ -sw",
-    "dev": "concurrently \"npx nodemon ./webserver/app.js\" \"npx browser-sync ./front-end/ -sw\" ",
-    "debug": "concurrently \"npx nodemon --inspect ./webserver/app.js\" \"npx browser-sync ./front-end/ -sw\" ",
+    "dev": "concurrently \"cd ./webserver && npx nodemon app.js\" \"cd ./front-end && npx browser-sync -sw \" ",
+    "debug": "concurrently \"cd ./webserver && npx nodemon --inspect app.js\" \"cd ./front-end && npx browser-sync -sw \" ",
     "install": "",
     "postinstall": "cd ./front-end && npm install && cd ../webserver && npm install"
   },
