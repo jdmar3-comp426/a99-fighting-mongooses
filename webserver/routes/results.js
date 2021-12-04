@@ -12,6 +12,9 @@ router.get("/:username", function (req, res, next) {
   const result = db
     .prepare("SELECT result FROM resultinfo WHERE userId = ?")
     .get(user.id);
+  if (!result) {
+    res.status(204).json({message: "No user result"});
+  }
   res.status(200);
   res.send(result);
 });

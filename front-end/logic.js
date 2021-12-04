@@ -3,6 +3,9 @@ const loginForm = document.querySelector("#login");
 const deleteButton = document.querySelector("#deleteButton");
 const logoutButton = document.querySelector("#logoutButton");
 
+// hides quiz when not loggedIn
+document.querySelector("#quizColumn").style.display = "none";
+
 // finds and saves the registration password and confirmation password inputs as variables
 const regPassword = document.querySelector("#regpassword");
 const regConfirmPassword = document.querySelector("#regpasswordconfirm");
@@ -43,39 +46,44 @@ const saveUsersResults = async (result) => {
 };
 
 const loadUsersResults = async (result) => {
-  const url = "http://localhost:5000/app/results/" + username;
-  const results = await fetch(url, {
-    method: "GET",
-    mode: "cors",
-    credentials: "omit",
-    headers: {
-      "Cache-Control": "no-cache",
-    },
-  });
-  if (results.status === 200) {
-    let result = await results.json();
-    const myresulttitle = document.querySelector("#result_title");
-    const resultsDisplay = document.querySelector("#result_display");
-    resultsDisplay.innerHTML = result.result;
-    myresulttitle.innerHTML = "Your most recent result: ";
-    let script =
-      "No Data: Learn about your animal's trait by playing the quiz game!";
-    const pararesult = document.querySelector("#description_display");
-    if (result.result == "Lion") {
-      script =
-        "Your inner Lion is a ferocious creature. You are proud of your accomplishments, but never gloat about it. Your beloved action speaks to who you are, and the lion in you is admirable. You are one who seeks to do the right thing in any situation. You often may come across many obstacles, but you prefer to brush it off and seek your goals.";
-    } else if (result.result == "Serpent") {
-      script =
-        "Your inner Serpent is very meticulous. You are very clever and are known for acting out of the blue. You surprise everyone with your actions, and make others weary of you. You stand out from the crowd as a result of your uniqueness. It is very evident from your successful path that you are no match for others.";
-    } else if (result.result == "Eagle") {
-      script =
-        "Your inner Eagle is always curious. You are eager to await what is next in life. You want to soar to the skies, and reach the beyond. You appear, and most definitely are, limitless in your capabilities. You want to know more, and believe that knowledge is your biggest asset. Moreover, You seek and cherish every opportunity presented to you.";
-    } else if (result.result == "Badger") {
-      script =
-        "Your inner Badger is clear cut. You are quick to your decision and are always ready for action. You are not intimidated by the task in front of you. Taking a leap of faith or not, does not matter to you. You care about being quick in action and making progress. You are ready to pave your own road to success, and will not easily be taken down by unhelpful peers.";
+    try {
+        const url = "http://localhost:5000/app/results/" + username;
+        const results = await fetch(url, {
+          method: "GET",
+          mode: "cors",
+          credentials: "omit",
+          headers: {
+            "Cache-Control": "no-cache",
+          },
+        });
+        if (results.status === 200) {
+          let result = await results.json();
+          const myresulttitle = document.querySelector("#result_title");
+          const resultsDisplay = document.querySelector("#result_display");
+          resultsDisplay.innerHTML = result.result;
+          myresulttitle.innerHTML = "Your most recent result: ";
+          let script =
+            "No Data: Learn about your animal's trait by playing the quiz game!";
+          const pararesult = document.querySelector("#description_display");
+          if (result.result == "Lion") {
+            script =
+              "Your inner Lion is a ferocious creature. You are proud of your accomplishments, but never gloat about it. Your beloved action speaks to who you are, and the lion in you is admirable. You are one who seeks to do the right thing in any situation. You often may come across many obstacles, but you prefer to brush it off and seek your goals.";
+          } else if (result.result == "Serpent") {
+            script =
+              "Your inner Serpent is very meticulous. You are very clever and are known for acting out of the blue. You surprise everyone with your actions, and make others weary of you. You stand out from the crowd as a result of your uniqueness. It is very evident from your successful path that you are no match for others.";
+          } else if (result.result == "Eagle") {
+            script =
+              "Your inner Eagle is always curious. You are eager to await what is next in life. You want to soar to the skies, and reach the beyond. You appear, and most definitely are, limitless in your capabilities. You want to know more, and believe that knowledge is your biggest asset. Moreover, You seek and cherish every opportunity presented to you.";
+          } else if (result.result == "Badger") {
+            script =
+              "Your inner Badger is clear cut. You are quick to your decision and are always ready for action. You are not intimidated by the task in front of you. Taking a leap of faith or not, does not matter to you. You care about being quick in action and making progress. You are ready to pave your own road to success, and will not easily be taken down by unhelpful peers.";
+          }
+          pararesult.innerHTML = script;
+        }
+    } catch (err) {
+        console.log("Error: " + err.message);
     }
-    pararesult.innerHTML = script;
-  }
+  
 };
 
 registrationForm.addEventListener("submit", async (e) => {
@@ -196,6 +204,7 @@ deleteButton.addEventListener("click", async (e) => {
 });
 
 const showDashboard = () => {
+    document.querySelector("#quizColumn").style.display = "block";
     document.querySelector("#registrationForm").style.display = "none";
     document.querySelector("#loginForm").style.display = "none";
     const dashboard = document.querySelector("#dashboard");
