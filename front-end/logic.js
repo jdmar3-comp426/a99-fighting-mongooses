@@ -226,12 +226,12 @@ const showDashboard = () => {
 const login = (user) => {
     username = user;
     loggedIn = true;
-    localStorage.setItem('loggedIn', true);
-    localStorage.setItem('username', username);
+    sessionStorage.setItem('loggedIn', true);
+    sessionStorage.setItem('username', username);
 }
 
 const logout = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     location.reload();
 }
 
@@ -246,13 +246,13 @@ awesomeButton.addEventListener("click", async (e) => {
 
 
 const loadLoginStatus = () => {
-    let statusCookie = localStorage.getItem('loggedIn');
+    let statusCookie = sessionStorage.getItem('loggedIn');
     if (statusCookie === "true") {
-        username = localStorage.getItem('username');
+        username = sessionStorage.getItem('username');
         loggedIn = true;
         showDashboard();
     } else {
-        localStorage.setItem('loggedIn', false);
+        sessionStorage.setItem('loggedIn', false);
     }
 }
 
