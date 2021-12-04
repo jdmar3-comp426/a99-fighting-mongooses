@@ -1,5 +1,7 @@
 const registrationForm = document.querySelector("#registration");
 const loginForm = document.querySelector("#login");
+const deleteButton = document.querySelector("#deleteButton");
+const logoutButton = document.querySelector("#logoutButton");
 
 // finds and saves the registration password and confirmation password inputs as variables
 const regPassword = document.querySelector("#regpassword");
@@ -17,19 +19,6 @@ document.querySelector("#dashboard").style.display = "none";
 document.querySelector("#incorrect_password").style.display = "none";
 // hides the taken username label by default
 document.querySelector("#takenUsername").style.display = "none";
-
-const showDashboard = () => {
-  loggedIn = true;
-  document.querySelector("#registrationForm").style.display = "none";
-  document.querySelector("#loginForm").style.display = "none";
-  const dashboard = document.querySelector("#dashboard");
-  dashboard.style.display = "block";
-  dashboard.style.height = "100hv";
-  dashboard.scrollIntoView();
-  const usernameDisplay = document.querySelector("#username_display");
-  usernameDisplay.innerHTML = "Welcome, " + username;
-  loadUsersResults();
-};
 
 const saveUsersResults = async (result) => {
   const url = "http://localhost:5000/app/results/add";
@@ -139,6 +128,7 @@ loginForm.addEventListener("submit", async (e) => {
     body: payload,
   });
   if (result.status === 200) {
+    login(username);
     showDashboard();
   } else {
     document.querySelector("#incorrect_password").style.display = "block";
@@ -179,6 +169,72 @@ regConfirmPassword.addEventListener("input", (event) => {
     passwordValid = true;
   }
 });
+
+deleteButton.addEventListener("click", async (e) => {
+    try {
+        const url = "http://localhost:5000/app/users/delete";
+        const payload = JSON.stringify({
+          username: username,
+        });
+        const results = await fetch(url, {
+          method: "DELETE",
+          mode: "cors",
+          credentials: "omit",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: payload,
+        });
+        if (results.status === 200) {
+          logout();
+        }  else {
+          throw "Error deleting user";
+        }
+      } catch (err) {
+        console.log("Error: " + err.message); // TODO something with errors
+      }
+});
+
+const showDashboard = () => {
+    document.querySelector("#registrationForm").style.display = "none";
+    document.querySelector("#loginForm").style.display = "none";
+    const dashboard = document.querySelector("#dashboard");
+    dashboard.style.display = "block";
+    dashboard.style.height = "100hv";
+    dashboard.scrollIntoView();
+    const usernameDisplay = document.querySelector("#username_display");
+    usernameDisplay.innerHTML = "Welcome, " + username;
+    loadUsersResults();
+  };
+
+const login = (user) => {
+    username = user;
+    localStorage.setItem('loggedIn', true);
+    localStorage.setItem('username', username);
+}
+
+const logout = () => {
+    localStorage.clear();
+    location.reload();
+}
+
+logoutButton.addEventListener("click", async (e) => {
+    logout();
+});
+
+
+const loadLoginStatus = () => {
+    let statusCookie = localStorage.getItem('loggedIn');
+    if (statusCookie === "true") {
+        username = localStorage.getItem('username');
+        loggedIn = true;
+        showDashboard();
+    } else {
+        localStorage.setItem('loggedIn', false);
+    }
+}
+
+loadLoginStatus();
 
 //Quiz Logic
 
@@ -221,8 +277,8 @@ quizbtn.onclick = function () {
   } else if (base == 3) {
     result = "Badger";
   }
+  if (loggedIn) saveUsersResults(result);
   //the var "result" holds the value of the user's animal result
   alert("Voolla! You're quiz game result is " + result);
-  if (loggedIn) saveUsersResults(result);
 };
 

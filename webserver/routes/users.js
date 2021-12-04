@@ -32,10 +32,19 @@ router.post('/add', (req, res) => {
 })
 
 router.delete('/delete', (req, res) => {
-  const body = req.body;
-  const username = body.username;
-  const stmt = db.prepare("DELETE FROM userinfo WHERE user = ?").run(username);
-  res.status(200).json({'message': `User: ${username} deleted`});
+  try {
+    const body = req.body;
+    const username = body.username;
+    let user = db
+      .prepare("SELECT id FROM userinfo WHERE user = ?")
+      .get(username);
+    const deleteResults = db.prepare(`DELETE FROM resultinfo WHERE userId = '${user.id}'`).run();
+    const stmt = db.prepare(`DELETE FROM userinfo WHERE id = '${user.id}'`).run();
+    res.status(200).json({'message': `User: ${username} deleted`});
+  } catch (err) {
+    console.log('Error: ' + err.message);
+  }
+  
 })
 
 module.exports = router;
