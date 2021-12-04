@@ -1,1 +1,379 @@
-First, I installed browser-sync
+Fighting Mongooses: Sorting Hat documentation
+    Build: 0.7.0
+
+Dependencies
+    npm: 8.1.4
+    browser-sync: 2.27.7
+    nodemon: 2.0.15
+    express: 4.17.1
+    better-sqlite3: 7.4.5
+    md5: 2.3.0
+    morgan: 1.9.1
+    jsonwebtoken: 8.5.1
+    cookie-parser: 1.4.4
+    crypto: 1.0.1
+    debug: 2.6.9
+    bulma: 0.9.3
+    concurrently: 6.4.0
+    cors: 2.8.5
+
+Licensing
+    license: GNU General Public License v3.0 only - GPL-3.0-only
+
+Contributors
+    irion4686 - Cody Irion
+    tanyinglin - Tanying Lin
+    kailash-unc - Kailash Muthu
+    Daisy Zhou
+    wyn1116 - Wyn Booth
+
+Roles
+    Front-end Lead:     kailash-unc
+    Back-end Lead:      irion4686
+    Design Lead:        Daisy Zhou
+    Database Lead:      tanyinglin
+    Plan Manager:       tanyinglin
+    Review Manager:     wyn1116
+    Documentation:      wyn1116
+
+Developing
+    
+    Cloning
+        
+        Clone project using built-in IDE or
+            git clone https://github.com/jdmar3-comp426/a99-fighting-mongooses.git
+    
+    Dependency installation
+        
+        Open a git-bash terminal targeting /a99-fighting-mongooses and run
+            npm install
+
+        Git-Bash documentation: https://git-scm.com/doc
+        
+        This command will install necessary npm modules into a node-modules folder.
+        
+        Next, the following commands will trigger:
+            cd ./front-end && npm install
+            cd ../webserver && npm install
+        
+        Of which the first command installs npm into the front-end folder,
+        and the second command installs npm into the webserver folder.
+
+        The following dependencies are installed within the a99-fighting-mongooses
+        folder upon execution of npm install:
+            concurrently: 6.4.0
+            cors: 2.8.5
+
+        The following dependencies are installed within the front-end folder
+        upon execution of npm install:
+            browser-sync: 2.27.7
+            bulma: 0.9.3
+
+        The following dependencies are installed within the webserver folder
+        upon execution of npm install:
+            better-sqlite3: 7.4.5
+            cookie-parser: 1.4.4
+            crypto: 1.0.1
+            debug: 2.6.9
+            express: 4.16.1
+            jsonwebtoken: 8.5.1
+            md5: 2.3.0
+            morgan: 1.9.1
+
+    Building
+
+        Locally save any changes to the project.
+
+        No commands are needed for building the project.
+
+    Deployment
+
+        Open a git-bash terminal targeting /a99-figthing-mongooses and run
+            npm run dev
+        
+        Git-bash documentation: https://git-scm.com/doc
+
+        This command will trigger the following commands using the concurrently dependency:
+            npx nodemon ./webserver/app.js
+            npx browser-sync ./front-end/ -sw
+        
+        Of which the first command triggers nodemon to monitor app.js within the webserver folder,
+        and the second command triggers browser-sync to monitor the front-end project folder
+
+        The use of nodemon and browser-sync in concurrence allows for real-time interaction with the
+        project. This includes API updates, content display, and user interaction.
+
+        To exit the environment, target the git-bash terminal and press CTRL + C
+    
+    Publishing
+
+        Ensure all changes are saved.
+
+        Push any changes to a new or existing branch within the github repository.
+
+        Open a pull request on GitHub for the branch. Administrators will review changes and either approve
+        or deny changes made within the branch. If approved, changes will merge with main.
+
+Versioning
+
+    Versioning of the project uses Semantic Version (SemVer). This versioning method is specified here:
+        https://semver.org/
+    
+Style Guide
+
+    A style guide has not been decided upon as of 2021-12-01.
+
+API Referencing
+
+    All API implementation can be found within the webserver folder.
+
+    The API relies on the following dependencies to function:
+        better-sqlite3: 7.4.5
+        cookie-parser: 1.4.4
+        crypto: 1.0.1
+        debug: 2.6.9
+        express: 4.16.1
+        jsonwebtoken: 8.5.1
+        md5: 2.3.0
+        morgan: 1.9.1
+    
+    The API requires the following files to function:
+        ./webserver/app.js
+        ./webserver/database.js
+        ./webserver/routes/index.js
+        ./webserver/routes/users.js
+        ./webserver/routes/login.js
+        ./webserver/routes/results.js
+    
+    The API requires the following endpoints to function:
+        /app/
+        /app/users/
+        /app/login/
+        /app/results/
+    
+    app.js
+
+        This file implements core API functions:
+            Dependency requirements (described above)
+            File requirements (described above)
+            Router requirements (described above)
+            Server port
+            Token verification
+            User verification
+        
+        The server port is set to a constant of 5000. Thus, the API uses:
+            http://localhost:5000
+        by default.
+
+        Token verification is done by the verifyToken function.
+        This function takes the user's token and compares it with the global SECRET vairable.
+        The function has three possible returns:
+            { Code 500. Missing Token. }
+            { Code 200. OK. }
+            { Code 401. Error message. }
+        
+        User verification is done by the verifyUser function.
+        This function takes a user and verifies the user's token with verfiyToken.
+        The function has one return:
+            next()
+        The function can also send a message and status to the console in the event of
+        an error throw.
+
+        The file is exported as a module to use elsewhere.
+
+    index.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/index/
+
+        get (./webserver/routes/index/)
+        The get function renders the home page. 
+
+        The file is exported as a module to use elsewhere.
+    
+    login.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/login/
+
+        post (./webserver/routes/login/)
+        The post function determines if an attempted login matches a user. The function
+        can yield two results:
+            Successful login, send token.
+            Unsuccessful login, display to user "Incorrect username and/or password"
+        
+        The file is exported as a module to use elsewhere.
+
+    results.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/results/
+
+        get (./webserver/routes/results/:userId/)
+        The get function obtains results that match a given userId from the resultinfo table in
+        database.js.
+
+        post (./webserver/routes/results/add/)
+        The post function modifies the resultinfo table. The function can yield two results:
+            No result found for matching userId, add new result.
+            Result found for matching userId, modify result.
+        
+        The file is exported as a module to use elsewhere.
+    
+    users.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/users/
+
+        There are three functions within this file:
+            get
+            post
+            delete
+        
+        get (./webserver/routes/users/)
+        The get function obtains all user listings.
+        
+        post (./webserver/routes/users/add/)
+        The post function adds a user based on the front-end's registration fields.
+        User, pass, and salt variables are added to userinfo. A token is passed to log in the
+        user upon registration. The function can yield the following results:
+            1 record created: ID (id) (201)
+            Account already exists with the given username (409)
+        
+        delete (./webserver/routes/users/delete/)
+        The delete function removes a user from the userinfo table.
+        The following message is displayed on the console upon deletion:
+            User: (username) deleted
+        The delete function works regardless of whether an entry exists within the userinfo table.
+
+        The file is exported as a module to use elsewhere.
+
+Database
+
+    The database can be found within the webserver folder at the database.js file.
+
+    The database is built using the following dependencies:
+        better-sqlite3: 7.4.5
+
+    database.js
+
+        This file implements a database which consists of two SQLite3 tables:
+            userinfo
+            resultinfo
+        
+        The userinfo table consists of entries containing four (4) variables
+            id      INTEGER PRIMARY KEY
+            user    TEXT UNIQUE
+            pass    TEXT
+            salt    TEXT
+        
+        The resultinfo table consists of entries containing three (3) variables:
+            resultId    INTEGER PRIMARY KEY
+            result      TEXT
+            userId      INTEGER references userinfo(id)
+        
+        The remainder of the file initializes the database tables using prepare, get, and exec
+        commands.
+
+        The file is exported as a module to use elsewhere.
+
+    user.db
+
+        The user.db file stores database information.
+
+        The user.db file is not accessible by developers or users.
+
+Front-end
+
+    Question and Answer Calculation:
+
+        There are 15 questions, allowing for 15 points to be earned upon completion of the questionnaire.
+        Point calculation is show next to each question. Whichever category has the most points is stored to
+        the resultinfo table.
+
+        Questions (15):
+
+        What is your favorite animal? 
+            A. Proud Lions. 
+            B. Sneaky Serpents.
+            C.Eager Eagles 
+            D. Brawn Badgers 
+
+        If you see a criminal on the street, what do you do?
+            A: Go fight the criminal as a vigilante (Brawn Badgers +1 point)
+            B: Follow the criminal (Sneaky Serpent +1 point)
+            C: Call the police like a proper citizen (Proud Lions +1 point)
+            D: Question the criminal and ask him what he is doing (Eager Eagles +1 point)
+
+        If you were a school principal, how would you select your students?
+            A.Select based on a challenging academic exam (Eager Eagles +1 point)
+            B.By merits and virtues a student presents (Proud Lions +1 point)
+            C.By a psychological tests (Sneaky Serpent +1 point)
+            D.Chose them randomly without any biases (Brawn Badgers +1 point)
+
+        How do your friends describe you?
+            A. Rigorous (Proud Lions +1 point)
+            B. Hardworking (Brawn Badgers +1 point)
+            C. Mysterious (Sneaky Serpent +1 point)
+            D. Brave (Eager Eagles +1 point)
+ 
+        What is your favorite film genre?
+            A. Documentary (Proud Lions +1 point)
+            B. Fiction (Brawn Badgers +1 point)
+            C. Action (Eager Eagles +1 point)
+            D. Thriller  (Sneaky Serpent +1 point)
+
+        What is your favorite color?
+            A. Mysterious Black   
+            B.Royal Gold  
+            C. Emerald Green 
+            D. Scarlet Red
+
+        You and your friends went to a forest camp and a wild animal is threatening you. What would you do?
+            A. Fight bravely and recklessness by myself (Brawn Badgers +1 point)
+            B. Fight together with my friends (Proud Lions +1 point)
+            C. I will bring the animal near a trap  (Eager Eagles +1 point)
+            D. I will run away to save myself (Sneaky Serpent +1 point)
+        What is your favorite season?
+            A. Spring (Brawn Badgers +1 point)
+            B. Summer (Proud Lions +1 point)
+            C. Fall (Sneaky Serpent +1 point)
+            D. Winter (Eager Eagles +1 point)
+
+        What will be your dream vacation?
+            A. Safari in Africa grassland (Proud Lions +1 point)
+            B. Skydiving in New Zealand (Eager Eagles +1 point)
+            C. Luxurious retreat by the sea  (Brawn Badgers +1 point)
+            D. Glamping in the remote mountain (Sneaky Serpent +1 point)
+
+        If you can have a superpower, what will it be?
+            A. Flying (Eager Eagles +1 point)
+            B. Super Speed (Brawn Badgers +1 point)
+            C. Time Travel (Proud Lions +1 point)
+            D. Become Invisible (Sneaky Serpent +1 point)
+
+        Which of the following elements are the most appealing to you?
+            A. Air  
+            B. Water 
+            C. Wood 
+            D. Earth
+
+        After a long stressful day, what would you eat?
+            A. Something I cooked myself (Eager Eagles +1 point)
+            B. My favorite treat food - I know what will make me feel better (Sneaky Serpent +1 point)
+            C. Whatever I usually eat, I do not do stress eating (Proud Lions +1 point)
+            D. Everything in sight - I need to have it right away  (Brawn Badgers +1 point)
+
+        You are going to have a challenging exam tomorrow, what would you do?
+            A. Study alone by myself (Eager Eagles +1 point)
+            B. Study in group with friend (Brawn Badgers +1 point)
+            C. See if it is possible to take some short cut and make some cheat sheets(Sneaky Serpent +1 point)
+            D. I do not study extra for it. It is what it is (Proud Lions +1 point)
+
+        What is your favorite weather?
+            A. Warm and Sunny (Proud Lions +1 point)
+            B. Cold and Rainy (Sneaky Serpent +1 point)
+            C. Windy and Chilly (Eager Eagles +1 point)
+            D. Cloudy and dry (Brawn Badgers +1 point)
+
+        You are nor expecting anything but receiving a package at your door. What do you think it will be?
+            A. A prank from your neighbors (Sneaky Serpent +1 point)
+            B. A surprising gift from a friend (Proud Lions +1 point)
+            C. Something delivered to the wrong address (Eager Eagles +1 point)
+            D. Something you ordered long ago but forgot (Brawn Badgers +1 point)

@@ -19,7 +19,7 @@
     "url": "git+ssh://git@github.com/jdmar3-comp426/a99-fighting-mongooses.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/jdmar3-comp426/a99-fighting-mongooses/issues"
   },
