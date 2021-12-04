@@ -11,6 +11,8 @@ let username = '';
 let usernameValid = false;
 let passwordValid = false;
 
+let userResult = '';
+
 // hides the dashboard by default
 document.querySelector('#dashboard').style.display = "none";
 // hides the incorrect password label by default
@@ -67,6 +69,8 @@ const loadUsersResults = async (result) => {
         let result = await results.json()
         const resultsDisplay = document.querySelector('#result_display');
         resultsDisplay.innerHTML = "Your most recent result: " + result.result;
+        userResult = result.result;
+        // put something here
     }
 }
 
