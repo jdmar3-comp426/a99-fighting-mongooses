@@ -12,6 +12,7 @@ strong{
     color:rgb(3, 45, 66) !important;
 }
 
+
 button{
     display: inline-block;
     position: absolute;
@@ -34,15 +35,6 @@ img{
     margin-top: 300px;
     margin-left: 770px;
 }
-
-.header {
-    padding: 60px;
-    text-align: center;
-    background: #1abc9c;
-    color: white;
-    font-size: 30px;
-  }
-
 ul{
     background-color: #f1f1f1;
     padding: 0;
@@ -55,7 +47,7 @@ ul{
 }
 
 
-.animals img {
+img {
     height: 300px !important;
     width: 300px !important;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -64,25 +56,30 @@ ul{
     margin: .3em;
 }
 
-.animals img:hover {
+img:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     transform: scale(1.05);
 }
 
-.content img {
-    height: 400px;
-    width: 600px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    min-width: 300px;
-    margin: .3em;
+.modal-card {
+    margin-top: 100px;
+    width: 650px;
+    height: 450px;
+  }
+
+.modal-card-body {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
 }
-.user{
-background: #1abc9c;
+.modal-card-body h1 {
+    font-size: xx-large;
 }
 
-.about-section {
-    padding: 60px;
+.modal-card-foot {
+    justify-content: center;
+    height: 15%;
+    width: 100%;
     text-align: center;
-    background: #1abc9c;
-    color: white;
-  }
+}

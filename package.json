@@ -8,15 +8,15 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx browser-sync ./front-end/ -sw",
-    "dev": "concurrently \"cd ./webserver && npx nodemon app.js\" \"cd ./front-end && npx browser-sync -sw \" ",
-    "debug": "concurrently \"cd ./webserver && npx nodemon --inspect app.js\" \"cd ./front-end && npx browser-sync -sw \" ",
+    "start": "npm --prefix ./webserver start",
+    "poststart": "npm --prefix ./front-end start",
+    "dev": "concurrently --kill-others \"npm --prefix ./webserver start\" \"npm --prefix ./front-end start \" ",
     "install": "",
     "postinstall": "cd ./front-end && npm install && cd ../webserver && npm install"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/jdmar3-comp426/a99-fighting-mongooses.git"
+    "url": "git+ssh://git@github.com/jdmar3-comp426/a99-fighting-mongooses.git" 
   },
   "author": "",
   "license": "GPL-3.0-only",

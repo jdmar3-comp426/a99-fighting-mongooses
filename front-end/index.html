@@ -11,11 +11,11 @@
 </head>
 
 <body>
-  <section class="header">
+  <section class="section pb-1">
     <div class="container">
       <div class="content has-text-centered">
-        <h1 class="subtitle has-text-weight-light">Fighting Mongooses</h1>
-        <h2 class="title has-text-weight-bold pt-4">
+        <h1 class="title has-text-weight-normal">Fighting Mongooses</h1>
+        <h2 class="subtitle has-text-weight-normal pt-4">
           Sorting Hat Game: <strong>Animal Edition</strong>
         </h2>
       </div>
@@ -25,10 +25,9 @@
     <div class="container">
       <div class="content">
         <h3 class="subtitle has-text-weight-normal">
-          Embark On the Magical Journey To Find Out Your Inner Animal
+          Play To Find Out Your Inner Animal
         </h3>
       </div>
-      <div class="animals">
       <div class="columns is-multiline justify-center">
         <div class="column">
           <img src="images/thelion.png" alt="Lion" />
@@ -43,139 +42,45 @@
           <img src="images/badger.png" alt="Badger" />
         </div>
       </div>
-    </div>
       <div class="columns justify-center">
         <div class="column">
-          <h4 class="subtitle has-text-weight-semibold">Lion</h4>
+          <h4 class="subtitle">Lion</h4>
         </div>
         <div class="column">
-          <h4 class="subtitle has-text-weight-semibold">Serpent</h4>
+          <h4 class="subtitle">Serpent</h4>
         </div>
         <div class="column">
-          <h4 class="subtitle has-text-weight-semibold">Eagle</h4>
+          <h4 class="subtitle">Eagle</h4>
         </div>
         <div class="column">
-          <h4 class="subtitle has-text-weight-semibold">Badger</h4>
+          <h4 class="subtitle">Badger</h4>
         </div>
       </div>
     </div>
   </section>
-  
-  <section class="user">
-  <section class="section pb-1">
-  <div id="registrationForm">
-    <div class="content">
-      <h3 class="subtitle has-text-weight-bold">
-        Sign Up Or Log In To Get Started
-      </h3>
-    </div>
-    <div class="content">
-      <h5 class="subtitle has-text-weight-normal mb-3">Sign Up</h5>
-      <form id="registration">
-        <label id="takenUsername" class="has-text-danger has-text-weight-semibold" for="takenUsername">Username already taken</label>
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input id="regusername" class="input" type="text" placeholder="Enter Username" name="username" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input id="regpassword" class="input" type="password" placeholder="Enter Password" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Repeat Password</label>
-          <div class="control">
-            <input id="regpasswordconfirm" class="input" type="password" placeholder="Enter Password Again" name="password" />
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <button class="registration button is-dark m-5 ml-auto" type="submit">
-              Register
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div id="loginForm">
-    <h5 class="subtitle has-text-weight-normal mb-3">Log In</h5>
-    <form id="login">
-      <label id="incorrect_password" class="has-text-danger has-text-weight-semibold	" for="incorrect_password">Incorrect password and/or username</label>
-      <div class="field">
-        <label class="label">Username</label>
-        <div class="control">
-          <input id="username" class="input" type="text" placeholder="Enter Username" name="username" />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Password</label>
-        <div class="control">
-          <input id="password" class="input" type="password" placeholder="Enter Password" name="password" />
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="control">
-          <button class="button is-dark m-5 ml-auto" type="submit">
-            Login
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div id="dashboard">
-    <section>
-      <div class="content">
-        <h3 id="username_display" class="subtitle has-text-weight-normal">
-          Welcome, "Username"
-        </h3>
-      </div>
-      <div class="content">
-        <h4 id="result_display" class="subtitle has-text-weight-normal">
-          Last Result: No data available, take the quiz!
-        </h4>
-
-      </div>
-    </section>
-
-    <div class="field is-inline-block">
-      <div class="control">
-        <button class="button is-dark m-5 ml-auto" type="submit">
-          Logout
-        </button>
-      </div>
-    </div>
-
-    <div class="field is-inline-block">
-      <div class="control">
-        <button class="button is-danger  m-5 ml-auto" type="submit">
-          Delete Account
-        </button>
-      </div>
-    </div>
-    <span class="is-block"></span>
-    <!--- Line allows for any future additions to not become inline-->
-
-  </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<script src="logic.js"></script>
-
 
   <section class="section pb-1">
     <div class="container">
+      <div id="resultModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Your Animal Is...</p>
+          </header>
+          <section class="modal-card-body">
+            <h1 id="modalAnimalName">Result</h1>
+            <p id="modalParagraph">This is a test!</p>
+          </section>
+          <footer class="modal-card-foot">
+            <button id="awesomeButton" class="button">Awesome!</button>
+          </footer>
+        </div>
+      </div>
+      <div class="columns">
+        <div id="quizColumn" class="column">
           <div class="content">
-            <h3 class="subtitle has-text-weight-bold">
-              Answer the questions and your spirit animal will come to you!
+            <h3 class="subtitle has-text-weight-normal">
+              Fill out the quiz game!
             </h3>
           </div>
           <div class="content">
@@ -184,7 +89,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   What is your favorite animal?
                 </h5>
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5646008704015.560c1ef131d43.jpg" alt="q1" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -215,7 +119,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   If you see a criminal on the street, what do you do?
                 </h5>
-                <img src="https://render.fineartamerica.com/images/images-profile-flow/400/images-medium-large-5/120-untitled-david-sipress.jpg" alt="q2" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -247,7 +150,6 @@
                   If you were a school principal, how would you select your
                   students?
                 </h5>
-                <img src="https://thumbs.dreamstime.com/b/principal-s-office-education-cartoon-showing-student-dog-cat-who-have-been-repeatedly-sent-to-65921703.jpg" alt="q3" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -278,7 +180,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   How do your friends describe you?
                 </h5>
-                <img src="https://media.istockphoto.com/vectors/ten-happy-cartoon-kids-outline-vector-id465049362?k=20&m=465049362&s=612x612&w=0&h=4oPh2UhsKdwtLhRTRjUBEXVUgiN4QffpceM5TU23jsg=" alt="q4" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -309,7 +210,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   What is your favorite film genre?
                 </h5>
-                <img src="https://media.istockphoto.com/vectors/crowd-vector-id903112256?k=20&m=903112256&s=612x612&w=0&h=mfVLhginGkJyz01zDW7y9qkpHTG5h7TCeQtCP3EhJTk=" alt="q5" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -340,7 +240,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   What is your favorite color?
                 </h5>
-                <img src="https://www.color-hex.com/palettes/37706.png" alt="q6" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -372,7 +271,6 @@
                   You and your friends went to a forest camp and a wild animal
                   is threatening you. What would you do?
                 </h5>
-                <img src="https://lh3.googleusercontent.com/proxy/4g1loiIDQNacQoSDXoFsuwOOQWXLsnB-kh6vVB8cO-gU4DJhR13yBIrVhqiT1sGDx0RmtjQLqHnOUFT8n7NwwoBT_88_VRmOQZqveAq8gTn_9OA15Q" alt="q7" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -403,7 +301,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   What is your favorite season?
                 </h5>
-                <img src="http://3.bp.blogspot.com/-VbMmt1873RM/UGi_XrWvZOI/AAAAAAAAA4g/LAg0xiO8wbM/s1600/Sketches+1200.jpg" alt="q8" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -434,7 +331,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   What will be your dream vacation?
                 </h5>
-                <img src="https://media.gettyimages.com/vectors/summer-vacation-hammock-palm-beach-drawing-vector-id525326867" alt="q9" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -465,7 +361,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   If you can have a superpower, what will it be?
                 </h5>
-                <img src="https://render.fineartamerica.com/images/rendered/medium/print/8/6.5/break/images-medium-5/75-untitled-charles-barsotti.jpg" alt="q10" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -497,7 +392,6 @@
                   Which of the following elements are the most appealing to
                   you?
                 </h5>
-                <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/periodic-table-of-elements-black-and-white-peter-hermes-furian.jpg" alt="q11" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -528,7 +422,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   After a long stressful day, what would you eat?
                 </h5>
-                <img src="https://www.creativefabrica.com/wp-content/uploads/2020/01/30/Black-and-white-food-drawing-vector-art-Graphics-1.jpg" alt="q12" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -561,7 +454,6 @@
                   You are going to have a challenging exam tomorrow, what
                   would you do?
                 </h5>
-                <img src="https://image.shutterstock.com/image-vector/business-team-meeting-continuous-line-260nw-1354729715.jpg" alt="q13" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -593,7 +485,6 @@
                 <h5 class="subtitle has-text-weight-normal mb-3">
                   What is your favorite weather?
                 </h5>
-                <img src="https://media.istockphoto.com/vectors/doodle-set-with-weather-element-vector-id914077774?k=20&m=914077774&s=612x612&w=0&h=iLQpe1Bt6YbmZz_nN5h574xu9BR9mBGzhH4QtBZRwyc=" alt="q14" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -625,7 +516,6 @@
                   You are nor expecting anything but receiving a package at
                   your door. What do you think it will be?
                 </h5>
-                <img src="https://www.seekpng.com/png/detail/17-171123_black-and-white-box-clip-art-black-white.png" alt="q15" />
                 <form>
                   <div class="field">
                     <div class="control">
@@ -652,7 +542,7 @@
                   </div>
                   <div class="field">
                     <div class="control">
-                      <button class="button is-dark m-5 ml-auto" type="submit" id="quizbtn">
+                      <button class="button is-dark m-5 ml-auto" type="button" id="quizbtn">
                         Submit
                       </button>
                     </div>
@@ -662,15 +552,128 @@
             </ol>
           </div>
         </div>
-      </section>
+        <div class="column">
+          <div id="registrationForm">
+            <div class="content">
+              <h3 class="subtitle has-text-weight-normal">
+                Sign Up Or Log In To Save Your Data
+              </h3>
+            </div>
+            <div class="content">
+              <h5 class="subtitle has-text-weight-normal mb-3">Sign Up</h5>
+              <form id="registration">
+                <label id="takenUsername" class="has-text-danger has-text-weight-semibold" for="takenUsername">Username
+                  already taken</label>
+                <div class="field">
+                  <label class="label">Username</label>
+                  <div class="control">
+                    <input id="regusername" class="input" type="text" placeholder="Enter Username" name="username" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Password</label>
+                  <div class="control">
+                    <input id="regpassword" class="input" type="password" placeholder="Enter Password" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Repeat Password</label>
+                  <div class="control">
+                    <input id="regpasswordconfirm" class="input" type="password" placeholder="Enter Password Again"
+                      name="password" />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <button class="registration button is-dark m-5 ml-auto" type="submit">
+                      Register
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="loginForm">
+            <h5 class="subtitle has-text-weight-normal mb-3">Log In</h5>
+            <form id="login">
+              <label id="incorrect_password" class="has-text-danger has-text-weight-semibold	"
+                for="incorrect_password">Incorrect password and/or username</label>
+              <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                  <input id="username" class="input" type="text" placeholder="Enter Username" name="username" />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input id="password" class="input" type="password" placeholder="Enter Password" name="password" />
+                </div>
+              </div>
 
-  <section class="about-section">
-    <div class="container">
-    <div class="has-text-weight-bold">Fighting Mongooses</div>
-    <p>Thank you for playing the sorting hat game!</p>
-  </div>
-</div>
-</section>
+              <div class="field">
+                <div class="control">
+                  <button class="button is-dark m-5 ml-auto" type="submit">
+                    Login
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="dashboard">
+            <section>
+              <div class="content">
+                <h3 id="username_display" class="subtitle has-text-weight-normal">
+                  Welcome, "Username"
+                </h3>
+              </div>
+              <div class="content">
+                <h4 id="result_title" class="subtitle has-text-weight-normal">
+                  Last Result:
+                </h4>
+              </div>
+              <div class="content">
+                <p id="result_display" class="subtitle has-text-weight-normal p-4">
+                  No Data Available, Take The Quiz!
+                </p>
+              </div>
+              <div class="content">
+                <h4 class="subtitle has-text-weight-normal">
+                  Result Description:
+                </h4>
+              </div>
+            </section>
+            <div class="content">
+              <p id="description_display" class="subtitle has-text-weight-normal p-4">
+                No Data -- Learn about your animal's trait by playing the quiz game!
+              </p>
+            </div>
+
+
+            <div class="field is-inline-block">
+              <div class="control">
+                <button id="logoutButton" class="button is-dark m-5 ml-auto" type="submit">
+                  Logout
+                </button>
+              </div>
+            </div>
+
+            <div class="field is-inline-block">
+              <div class="control">
+                <button id="deleteButton" class="button is-danger  m-5 ml-auto" type="submit">
+                  Delete Account
+                </button>
+              </div>
+            </div>
+            <span class="is-block"></span>
+            <!--- Line allows for any future additions to not become inline-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="logic.js"></script>
 </body>
 
 </html>
