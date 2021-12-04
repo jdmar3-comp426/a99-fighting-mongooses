@@ -12,7 +12,6 @@ strong{
     color:rgb(3, 45, 66) !important;
 }
 
-
 button{
     display: inline-block;
     position: absolute;
@@ -35,6 +34,15 @@ img{
     margin-top: 300px;
     margin-left: 770px;
 }
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+
 ul{
     background-color: #f1f1f1;
     padding: 0;
@@ -47,7 +55,7 @@ ul{
 }
 
 
-img {
+.animals img {
     height: 300px !important;
     width: 300px !important;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -56,7 +64,25 @@ img {
     margin: .3em;
 }
 
-img:hover {
+.animals img:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     transform: scale(1.05);
 }
+
+.content img {
+    height: 400px;
+    width: 600px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    min-width: 300px;
+    margin: .3em;
+}
+.user{
+background: #1abc9c;
+}
+
+.about-section {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+  }
