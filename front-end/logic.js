@@ -2,6 +2,7 @@ const registrationForm = document.querySelector("#registration");
 const loginForm = document.querySelector("#login");
 const deleteButton = document.querySelector("#deleteButton");
 const logoutButton = document.querySelector("#logoutButton");
+const awesomeButton = document.querySelector("#awesomeButton"); // closes modal
 
 // hides quiz when not loggedIn
 document.querySelector("#quizColumn").style.display = "none";
@@ -14,6 +15,7 @@ let loggedIn;
 let username = "";
 let usernameValid = false;
 let passwordValid = false;
+let result;
 
 
 // hides the dashboard by default
@@ -22,6 +24,22 @@ document.querySelector("#dashboard").style.display = "none";
 document.querySelector("#incorrect_password").style.display = "none";
 // hides the taken username label by default
 document.querySelector("#takenUsername").style.display = "none";
+
+const returnDescription = (result) => {
+    switch(result) {
+        case "Lion":
+            return "Your inner Lion is a ferocious creature. You are proud of your accomplishments, but never gloat about it. Your beloved action speaks to who you are, and the lion in you is admirable. You are one who seeks to do the right thing in any situation. You often may come across many obstacles, but you prefer to brush it off and seek your goals.";
+        case "Serpent":
+            return "Your inner Serpent is very meticulous. You are very clever and are known for acting out of the blue. You surprise everyone with your actions, and make others weary of you. You stand out from the crowd as a result of your uniqueness. It is very evident from your successful path that you are no match for others.";
+        case "Eagle":
+            return "Your inner Eagle is always curious. You are eager to await what is next in life. You want to soar to the skies, and reach the beyond. You appear, and most definitely are, limitless in your capabilities. You want to know more, and believe that knowledge is your biggest asset. Moreover, You seek and cherish every opportunity presented to you.";
+        case "Badger":
+            return "Your inner Badger is clear cut. You are quick to your decision and are always ready for action. You are not intimidated by the task in front of you. Taking a leap of faith or not, does not matter to you. You care about being quick in action and making progress. You are ready to pave your own road to success, and will not easily be taken down by unhelpful peers.";
+        default:
+            console.log("returnDescription: No result given");
+            return null;
+    }
+}
 
 const saveUsersResults = async (result) => {
   const url = "http://localhost:5000/app/results/add";
@@ -65,19 +83,7 @@ const loadUsersResults = async (result) => {
           let script =
             "No Data: Learn about your animal's trait by playing the quiz game!";
           const pararesult = document.querySelector("#description_display");
-          if (result.result == "Lion") {
-            script =
-              "Your inner Lion is a ferocious creature. You are proud of your accomplishments, but never gloat about it. Your beloved action speaks to who you are, and the lion in you is admirable. You are one who seeks to do the right thing in any situation. You often may come across many obstacles, but you prefer to brush it off and seek your goals.";
-          } else if (result.result == "Serpent") {
-            script =
-              "Your inner Serpent is very meticulous. You are very clever and are known for acting out of the blue. You surprise everyone with your actions, and make others weary of you. You stand out from the crowd as a result of your uniqueness. It is very evident from your successful path that you are no match for others.";
-          } else if (result.result == "Eagle") {
-            script =
-              "Your inner Eagle is always curious. You are eager to await what is next in life. You want to soar to the skies, and reach the beyond. You appear, and most definitely are, limitless in your capabilities. You want to know more, and believe that knowledge is your biggest asset. Moreover, You seek and cherish every opportunity presented to you.";
-          } else if (result.result == "Badger") {
-            script =
-              "Your inner Badger is clear cut. You are quick to your decision and are always ready for action. You are not intimidated by the task in front of you. Taking a leap of faith or not, does not matter to you. You care about being quick in action and making progress. You are ready to pave your own road to success, and will not easily be taken down by unhelpful peers.";
-          }
+          script = returnDescription(result.result);
           pararesult.innerHTML = script;
         }
     } catch (err) {
@@ -233,6 +239,11 @@ logoutButton.addEventListener("click", async (e) => {
     logout();
 });
 
+awesomeButton.addEventListener("click", async (e) => {
+    document.querySelector("#resultModal").classList.remove('is-active');
+    location.reload();
+});
+
 
 const loadLoginStatus = () => {
     let statusCookie = localStorage.getItem('loggedIn');
@@ -250,6 +261,12 @@ loadLoginStatus();
 //Quiz Logic
 
 const quizbtn = document.querySelector("#quizbtn");
+
+const displayModal = (result) => {
+    document.querySelector("#resultModal").classList.add('is-active');
+    document.querySelector("#modalAnimalName").innerHTML = result;
+    document.querySelector("#modalParagraph").innerHTML = returnDescription(result);
+}
 
 quizbtn.onclick = function () {
   const radiobuttons = document.querySelectorAll('input[name="answer"]');
@@ -290,6 +307,7 @@ quizbtn.onclick = function () {
   }
   if (loggedIn) saveUsersResults(result);
   //the var "result" holds the value of the user's animal result
-  alert("Voolla! You're quiz game result is " + result);
+  displayModal(result);
+  //alert("Voolla! You're quiz game result is " + result);
 };
 
