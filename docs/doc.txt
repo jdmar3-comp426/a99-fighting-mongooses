@@ -1,5 +1,7 @@
 Fighting Mongooses: Sorting Hat documentation
     Build: 0.7.0
+    
+Demo: https://youtu.be/KkXIp2KMgXk
 
 Dependencies
     npm: 8.1.4
@@ -94,8 +96,12 @@ Developing
         Git-bash documentation: https://git-scm.com/doc
 
         This command will trigger the following commands using the concurrently dependency:
-            npx nodemon ./webserver/app.js
-            npx browser-sync ./front-end/ -sw
+            npm --prefix ./webserver start
+            npm --prefix ./front-end start
+            
+        These commands will trigger the following commands to be run:
+        npx browser-sync -sw
+        nodemon app.js
         
         Of which the first command triggers nodemon to monitor app.js within the webserver folder,
         and the second command triggers browser-sync to monitor the front-end project folder
@@ -168,7 +174,6 @@ API Referencing
         Token verification is done by the verifyToken function.
         This function takes the user's token and compares it with the global SECRET vairable.
         The function has three possible returns:
-            { Code 500. Missing Token. }
             { Code 200. OK. }
             { Code 401. Error message. }
         
