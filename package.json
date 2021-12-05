@@ -9,9 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm --prefix ./webserver start",
-    "poststart": "npm --prefix ./front-end start",
     "dev": "concurrently --kill-others \"npm --prefix ./webserver start\" \"npm --prefix ./front-end start \" ",
-    "install": "",
+    "install": "npm install",
     "postinstall": "cd ./front-end && npm install && cd ../webserver && npm install"
   },
   "repository": {
