@@ -2,6 +2,8 @@
 
 # Sorting Hat: Fighting Mongooses Edition
 
+DEMO: https://youtu.be/KkXIp2KMgXk
+
 An animal sorting hat quiz inspired by Harry Potter. The quiz will ask 15 simple questions and sort you into one of four categories: Lion, Snake, Eagle, or Badger.
 You can save your results by creating an account and view those results later by logging back in.
 
