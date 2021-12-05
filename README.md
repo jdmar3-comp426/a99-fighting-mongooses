@@ -51,6 +51,12 @@ The API employs basic functionality: creating, reading, modifying, replacing, an
 
 All API implementation can be found in [the webserver folder](./webserver). Further information regarding the API can be found in [the docs folder](docs/doc.txt).
 
+## Front-End
+
+Front-end has been implemented using HTML, CSS, and JavaScript. All front-end code can be found in [the front-end folder](./front-end).
+
+A thorough documentation of the front-end can be found in [the docs folder](docs/doc.txt).
+
 ## Contributors
 
 There are 5 contributors on this project! These contributors - as well as their roles - can be found in [the docs folder](docs/doc.txt).
