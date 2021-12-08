@@ -1,54 +1,62 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6431709&assignment_repo_type=AssignmentRepo)
-# a99 Finally
+[![GitHub license](https://img.shields.io/badge/license-GPL-green.svg?style=flat-square)](./LICENSE)
 
-COMP426 final project template repository. All your code and documentation goes here. Change this text to be a brief description of your final project. Put the name in the header above. You will change everything below to be the main technical documentation, as outlined below.
+# Sorting Hat: Fighting Mongooses Edition
 
-## First steps
+DEMO: https://youtu.be/KkXIp2KMgXk
 
-Other steps that you will need to take after you have cloned this repository:
+An animal sorting hat quiz inspired by Harry Potter. The quiz will ask 15 simple questions and sort you into one of four categories: Lion, Snake, Eagle, or Badger.
+You can save your results by creating an account and view those results later by logging back in.
 
-1. Choose and update the LICENSE file accordingly. 
-2. Edit this README.md file and use it as the main location of your technical documentation with links out to information contained under `/docs/`.
-3. Create a `/docs/` directory for more elaborate documentation of your API, planning notes, etc.
-4. Make sure that all of your team members have access to the repository as administrators.
-5. Create a project under the **Projects** tab. Use this to manage your planning. Create a To-do list, etc. Explore the tools available and user them to manage your project.
-7. Assign team roles and include a listing of those roles in this README.md file or in another file under `/docs/`.
-8. Then put your entire development workflow in this repository.
-9. Use **Pull requests** to propose changes and incorporate them into your code from various team members. 
-10. Use **Issues** to identify and track bugs and also to communicate about various aspects of the project.
+## Prerequisites
 
-## Team mangement
+No prerequisites are needed for this project!
 
-Plan to meet with your team ASAP.
-Talk through identifying roles within your team.
+## Main Dependencies
 
-Try to figure out what each of you are good at/enjoy doing and try to work out roles that incorporate that.
+- [npm](https://www.npmjs.com/)
+- [browser-sync](https://browsersync.io/)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [better-sqlite3](https://www.npmjs.com/package/better-sqlite3)
+- [express](https://expressjs.com/)
+- [md5](https://www.npmjs.com/package/md5)
 
-Some basic roles you will want to consider:
+A full list of dependencies can be found in [the docs folder](docs/doc.txt).
 
-1. A review manager - someone to review pull requests and merge or reject them and manage the related discussions
-2. A plan manager - someone to keep an eye on the overall plan and keep the project tab/to-do list up to date
-3. A documentation manager - someone to keep the documentation in order and identify what is missing and needs to be documented
-4. Roles for team members to take charge or different parts of the project. Possible roles:
-    1. Front end lead
-    2. Back end lead
-    3. Databse lead
-    4. Design lead
-    5. Etc.
+## Setup
 
-You will notice that there are more roles than people in your group.
-That is because you will all be doing a hybrid job of managing a thing while working on other things.
+To setup the project, clone the repository and open a Git Bash terminal targeting the a99-fighting-mongooses folder.
 
-## Check in with instructional staff
+In the console, run the command `npm install`. All dependencies will be installed upon running this command.
 
-Once all the groups are together, we'll assign each group to an LA to check in with as you progress through the project.
+More detail about cloning and installing dependencies can be found in [the docs folder](docs/doc.txt).
 
-We will post that so that your team can schedule a time for an initial check-in with your assigned LA. It would be a good idea also to add your LA to your repository.
+## Deployment
 
-## Assignment instructions
+To run the project, open a Git Bash terminal targeting the a99-fighting-mongooses folder.
 
-And that is about all you need to get started.
+In the console, run the command `npm run dev`. The project will launch your browser using nodemon and browser-sync.
+The project can be interacted with in real time.
 
-All the rest of the assignment instructions are available at: https://comp426.johndmart.in/assignments/99
+To close the project, close your browser and press `ctrl+c` in the Git Bash terminal.
 
-Good skill, and have fun with this!
+## API
+
+A basic API has been implemented with [Express](https://expressjs.com/).
+
+The API employs basic functionality: creating, reading, modifying, replacing, and deleting. It employs these functions onto endpoints:
+- /app/
+- /app/users/
+- /app/login/
+- /app/results/
+
+All API implementation can be found in [the webserver folder](./webserver). Further information regarding the API can be found in [the docs folder](docs/doc.txt).
+
+## Front-End
+
+Front-end has been implemented using HTML, CSS, and JavaScript. All front-end code can be found in [the front-end folder](./front-end).
+
+A thorough documentation of the front-end can be found in [the docs folder](docs/doc.txt).
+
+## Contributors
+
+There are 5 contributors on this project! These contributors - as well as their roles - can be found in [the docs folder](docs/doc.txt).

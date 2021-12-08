@@ -1,0 +1,556 @@
+Fighting Mongooses: Sorting Hat documentation
+    Build: 0.7.0
+    
+Demo: https://youtu.be/KkXIp2KMgXk
+
+Dependencies
+    npm: 8.1.4
+    browser-sync: 2.27.7
+    nodemon: 2.0.15
+    express: 4.17.1
+    better-sqlite3: 7.4.5
+    md5: 2.3.0
+    morgan: 1.9.1
+    jsonwebtoken: 8.5.1
+    cookie-parser: 1.4.4
+    crypto: 1.0.1
+    debug: 2.6.9
+    bulma: 0.9.3
+    concurrently: 6.4.0
+    cors: 2.8.5
+
+Licensing
+    license: GNU General Public License v3.0 only - GPL-3.0-only
+
+Contributors
+    irion4686 - Cody Irion
+    tanyinglin - Tanying Lin
+    kailash-unc - Kailash Muthu
+    Daisy Zhou
+    wyn1116 - Wyn Booth
+
+Roles
+    Front-end Lead:     kailash-unc
+    Back-end Lead:      irion4686
+    Design Lead:        Daisy Zhou
+    Database Lead:      tanyinglin
+    Plan Manager:       tanyinglin
+    Review Manager:     wyn1116
+    Documentation:      wyn1116
+
+Developing
+    
+    Cloning
+        
+        Clone project using built-in IDE or
+            git clone https://github.com/jdmar3-comp426/a99-fighting-mongooses.git
+    
+    Dependency installation
+        
+        Open a git-bash terminal targeting /a99-fighting-mongooses and run
+            npm install
+
+        Git-Bash documentation: https://git-scm.com/doc
+        
+        This command will install necessary npm modules into a node-modules folder.
+        
+        Next, the following commands will trigger:
+            cd ./front-end && npm install
+            cd ../webserver && npm install
+        
+        Of which the first command installs npm into the front-end folder,
+        and the second command installs npm into the webserver folder.
+
+        The following dependencies are installed within the a99-fighting-mongooses
+        folder upon execution of npm install:
+            concurrently: 6.4.0
+            cors: 2.8.5
+
+        The following dependencies are installed within the front-end folder
+        upon execution of npm install:
+            browser-sync: 2.27.7
+            bulma: 0.9.3
+
+        The following dependencies are installed within the webserver folder
+        upon execution of npm install:
+            better-sqlite3: 7.4.5
+            cookie-parser: 1.4.4
+            crypto: 1.0.1
+            debug: 2.6.9
+            express: 4.16.1
+            jsonwebtoken: 8.5.1
+            md5: 2.3.0
+            morgan: 1.9.1
+
+    Building
+
+        Locally save any changes to the project.
+
+        No commands are needed for building the project.
+
+    Deployment
+
+        Open a git-bash terminal targeting /a99-figthing-mongooses and run
+            npm run dev
+        
+        Git-bash documentation: https://git-scm.com/doc
+
+        This command will trigger the following commands using the concurrently dependency:
+            npm --prefix ./webserver start
+            npm --prefix ./front-end start
+            
+        These commands will trigger the following commands to be run:
+        npx browser-sync -sw
+        nodemon app.js
+        
+        Of which the first command triggers nodemon to monitor app.js within the webserver folder,
+        and the second command triggers browser-sync to monitor the front-end project folder
+
+        The use of nodemon and browser-sync in concurrence allows for real-time interaction with the
+        project. This includes API updates, content display, and user interaction.
+
+        To exit the environment, target the git-bash terminal and press CTRL + C
+    
+    Publishing
+
+        Ensure all changes are saved.
+
+        Push any changes to a new or existing branch within the github repository.
+
+        Open a pull request on GitHub for the branch. Administrators will review changes and either approve
+        or deny changes made within the branch. If approved, changes will merge with main.
+
+Versioning
+
+    Versioning of the project uses Semantic Version (SemVer). This versioning method is specified here:
+        https://semver.org/
+    
+Style Guide
+
+    A style guide has not been decided upon as of 2021-12-01.
+
+API Referencing
+
+    All API implementation can be found within the webserver folder.
+
+    The API relies on the following dependencies to function:
+        better-sqlite3: 7.4.5
+        cookie-parser: 1.4.4
+        crypto: 1.0.1
+        debug: 2.6.9
+        express: 4.16.1
+        jsonwebtoken: 8.5.1
+        md5: 2.3.0
+        morgan: 1.9.1
+    
+    The API requires the following files to function:
+        ./webserver/app.js
+        ./webserver/database.js
+        ./webserver/routes/index.js
+        ./webserver/routes/users.js
+        ./webserver/routes/login.js
+        ./webserver/routes/results.js
+    
+    The API requires the following endpoints to function:
+        /app/
+        /app/users/
+        /app/login/
+        /app/results/
+    
+    app.js
+
+        This file implements core API functions:
+            Dependency requirements (described above)
+            File requirements (described above)
+            Router requirements (described above)
+            Server port
+            Token verification
+            User verification
+        
+        The server port is set to a constant of 5000. Thus, the API uses:
+            http://localhost:5000
+        by default.
+
+        Token verification is done by the verifyToken function.
+        This function takes the user's token and compares it with the global SECRET vairable.
+        The function has three possible returns:
+            { Code 200. OK. }
+            { Code 401. Error message. }
+        
+        User verification is done by the verifyUser function.
+        This function takes a user and verifies the user's token with verfiyToken.
+        The function has one return:
+            next()
+        The function can also send a message and status to the console in the event of
+        an error throw.
+
+        The file is exported as a module to use elsewhere.
+
+    index.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/index/
+
+        get (./webserver/routes/index/)
+        The get function renders the home page. 
+
+        The file is exported as a module to use elsewhere.
+    
+    login.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/login/
+
+        post (./webserver/routes/login/)
+        The post function determines if an attempted login matches a user. The function
+        can yield two results:
+            Successful login, send token.
+            Unsuccessful login, display to user "Incorrect username and/or password"
+        
+        The file is exported as a module to use elsewhere.
+
+    results.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/results/
+
+        get (./webserver/routes/results/:userId/)
+        The get function obtains results that match a given userId from the resultinfo table in
+        database.js.
+
+        post (./webserver/routes/results/add/)
+        The post function modifies the resultinfo table. The function can yield two results:
+            No result found for matching userId, add new result.
+            Result found for matching userId, modify result.
+        
+        The file is exported as a module to use elsewhere.
+    
+    users.js
+
+        This file defines the behavior of the endpoint ./webserver/routes/users/
+
+        There are three functions within this file:
+            get
+            post
+            delete
+        
+        get (./webserver/routes/users/)
+        The get function obtains all user listings.
+        
+        post (./webserver/routes/users/add/)
+        The post function adds a user based on the front-end's registration fields.
+        User, pass, and salt variables are added to userinfo. A token is passed to log in the
+        user upon registration. The function can yield the following results:
+            1 record created: ID (id) (201)
+            Account already exists with the given username (409)
+        
+        delete (./webserver/routes/users/delete/)
+        The delete function removes a user from the userinfo table.
+        The following message is displayed on the console upon deletion:
+            User: (username) deleted
+        The delete function works regardless of whether an entry exists within the userinfo table.
+
+        The file is exported as a module to use elsewhere.
+
+Database
+
+    The database can be found within the webserver folder at the database.js file.
+
+    The database is built using the following dependencies:
+        better-sqlite3: 7.4.5
+
+    database.js
+
+        This file implements a database which consists of two SQLite3 tables:
+            userinfo
+            resultinfo
+        
+        The userinfo table consists of entries containing four (4) variables
+            id      INTEGER PRIMARY KEY
+            user    TEXT UNIQUE
+            pass    TEXT
+            salt    TEXT
+        
+        The resultinfo table consists of entries containing three (3) variables:
+            resultId    INTEGER PRIMARY KEY
+            result      TEXT
+            userId      INTEGER references userinfo(id)
+        
+        The remainder of the file initializes the database tables using prepare, get, and exec
+        commands.
+
+        The file is exported as a module to use elsewhere.
+
+    user.db
+
+        The user.db file stores database information.
+
+        The user.db file is not accessible by developers or users.
+
+Front-end
+
+    The project's front-end uses HTML for content and CSS for styling. All front-end code can be found in 
+    the a99-fighting-mongooses/front-end folder.
+
+    HTML content
+
+        The project uses a one-page design. All website HTML resides in index.hmtl.
+
+        Content is organized with basic HTML:
+            div
+            form
+            etc.
+        
+        Content is written using appopriate HTML:
+            image
+            h1 - h5
+            etc.
+        
+        HTML documentation is provided by Mozilla here: https://developer.mozilla.org/en-US/docs/Web/HTML
+
+    CSS
+
+        The project uses Bulma as a stylesheet to assist in webpage design and organization. Bulma, as with other
+        spreadsheets, uses custom HTML class names to quickly style content.
+
+        Bulma documentation can be found here: https://bulma.io/documentation/
+
+        Custom CSS can be found in custom_style.css. The file consists of basic CSS to style the background
+        and to modify content organization.
+
+    JavaScript
+
+        JavaScript interacts with website elements to display specific content based on user input.
+
+        All front-end JavaScript can be found in the logic.js file.
+
+        returnDescription
+
+            This function uses a switch statement based on a result variable to return a pre-defined description.
+
+            The following returns are possible:
+                CASE: "Lion"    RETURN: "Your inner Lion is a ferocious creature. You are proud..."
+                CASE: "Serpent" RETURN: "Your inner Serpent is very meticulous. You are very clever..."
+                CASE: "Eagle"   RETURN: "Your inner Eagle is always curious. You are eager..."
+                CASE: "Badger"  RETURN: "Your inner Badger is clear cut. You are quick..."
+                CASE: default   RETURN: null    LOG: "returnDescription: No result given"
+        
+        saveUserResults
+
+            This function uses a results variable to save a user's credentials and show the dashboard.
+
+            If a result returns a fetch status of 200, the dashboard is shown. Otherwise, an error is thrown.
+        
+        loadUsersResults
+
+            loadUsersResults uses a result variable to load content to the user's dashboard.
+
+            If a function returns a fetch status of 200, the following occurs:
+                Update HTML result title
+                Update HTML result display
+                Update HTML result script
+            
+            Otherwise, the folliwng message is logged:
+                "Error: [error message]"
+            
+        registrationForm.addEventListener
+
+            This function displays content based on a user's input to the registration form.
+
+            If the registration form is filled out correctly (status 200):
+                The user will be logged in
+                The dashboard will be shown
+
+            If the registration form is filled out incorrectly (status 409):
+                The user will be informed that the username is taken
+            
+            If there is an error:
+                LOG: "Error: [error message]"
+        
+        loginForm.addEventListener
+
+            This function displays content based on a user's input to the login form.
+            
+            If the login form is filled out correctly (status 200):
+                The user will be logged in
+                The dashboard will be shown
+            
+            If the login form is filled out incorrectly:
+                The user will be informed that their password is incorrect
+            
+        regusername.addEventListener + regPassword.addEventListener + regConfirmPassword.addEventListener
+
+            These functions authenticate that the username and password fields are arbitrarily valid.
+
+            The following conditions define a valid username:
+                Username has more than 5 characters
+            
+            The following conditions define a valid password:
+                Password is more than 6 characters
+                Password is the same as the input in the "Confirm Password" field.
+        
+        deleteButton.addEventListener
+
+            This function handles the "delete account" button.
+
+            The following occurs upon a click:
+                The user is logged out
+            
+            If an error occurs:
+                LOG: "Error: [error message]"
+        
+        showDashboard
+
+            This function displays the dashboard to the user.
+
+            The following occurs after a call:
+                The registration form is hidden
+                The login form is hidden
+                The dashboard is put into view
+                The line "Welcome, [username]" is displayed
+        
+        login
+
+            This function logs in a user. It requires a username variable.
+
+            The following occurs after a call:
+                Global variable loggedIn set to true
+                Username and login status saved to session
+        
+        logout
+
+            This function logs out a user.
+
+            The following occurs after a call:
+                The session is cleared
+            
+        loadLoginStatus
+        
+            This function displays content based on the user's login status.
+
+            The following results may occur after a call:
+                LOGGED IN: The global variable "username" is set to the user's username
+                LOGGED IN: The global variable "loggedIn" is set to true
+                LOGGED OUT: The global variable "loggedIn" is set to false
+            
+        displayModal
+
+            This function displays a modal window upon completion of the quiz using a result variable
+
+            The following occurs after a call:
+                The modal window is set to active
+                The window's animal name is set
+                The window's animal description is set
+        
+        quizbtn.onclick
+
+            This function calculates a question's answer value and stores it to an array. It then calculates
+            the quiz result.
+
+            The array used is length four:
+                array[0]: Lion
+                array[1]: Serpent
+                array[2]: Eagle
+                array[3]: Badger
+
+            Upon quiz completion, the result will be set to one of the following values:
+                0: Lion
+                1: Serpent
+                2: Eagle
+                3: Badger
+
+            The function ends by calling displayModal using the calculated result as a variable.
+
+    Question and Answer Calculation:
+
+        There are 15 questions, allowing for 15 points to be earned upon completion of the questionnaire.
+        Point calculation is show next to each question. Whichever category has the most points is stored to
+        the resultinfo table.
+
+        Questions (15):
+
+        What is your favorite animal? 
+            A. Proud Lions. 
+            B. Sneaky Serpents.
+            C.Eager Eagles 
+            D. Brawn Badgers 
+
+        If you see a criminal on the street, what do you do?
+            A: Go fight the criminal as a vigilante (Brawn Badgers +1 point)
+            B: Follow the criminal (Sneaky Serpent +1 point)
+            C: Call the police like a proper citizen (Proud Lions +1 point)
+            D: Question the criminal and ask him what he is doing (Eager Eagles +1 point)
+
+        If you were a school principal, how would you select your students?
+            A.Select based on a challenging academic exam (Eager Eagles +1 point)
+            B.By merits and virtues a student presents (Proud Lions +1 point)
+            C.By a psychological tests (Sneaky Serpent +1 point)
+            D.Chose them randomly without any biases (Brawn Badgers +1 point)
+
+        How do your friends describe you?
+            A. Rigorous (Proud Lions +1 point)
+            B. Hardworking (Brawn Badgers +1 point)
+            C. Mysterious (Sneaky Serpent +1 point)
+            D. Brave (Eager Eagles +1 point)
+ 
+        What is your favorite film genre?
+            A. Documentary (Proud Lions +1 point)
+            B. Fiction (Brawn Badgers +1 point)
+            C. Action (Eager Eagles +1 point)
+            D. Thriller  (Sneaky Serpent +1 point)
+
+        What is your favorite color?
+            A. Mysterious Black   
+            B.Royal Gold  
+            C. Emerald Green 
+            D. Scarlet Red
+
+        You and your friends went to a forest camp and a wild animal is threatening you. What would you do?
+            A. Fight bravely and recklessness by myself (Brawn Badgers +1 point)
+            B. Fight together with my friends (Proud Lions +1 point)
+            C. I will bring the animal near a trap  (Eager Eagles +1 point)
+            D. I will run away to save myself (Sneaky Serpent +1 point)
+        What is your favorite season?
+            A. Spring (Brawn Badgers +1 point)
+            B. Summer (Proud Lions +1 point)
+            C. Fall (Sneaky Serpent +1 point)
+            D. Winter (Eager Eagles +1 point)
+
+        What will be your dream vacation?
+            A. Safari in Africa grassland (Proud Lions +1 point)
+            B. Skydiving in New Zealand (Eager Eagles +1 point)
+            C. Luxurious retreat by the sea  (Brawn Badgers +1 point)
+            D. Glamping in the remote mountain (Sneaky Serpent +1 point)
+
+        If you can have a superpower, what will it be?
+            A. Flying (Eager Eagles +1 point)
+            B. Super Speed (Brawn Badgers +1 point)
+            C. Time Travel (Proud Lions +1 point)
+            D. Become Invisible (Sneaky Serpent +1 point)
+
+        Which of the following elements are the most appealing to you?
+            A. Air  
+            B. Water 
+            C. Wood 
+            D. Earth
+
+        After a long stressful day, what would you eat?
+            A. Something I cooked myself (Eager Eagles +1 point)
+            B. My favorite treat food - I know what will make me feel better (Sneaky Serpent +1 point)
+            C. Whatever I usually eat, I do not do stress eating (Proud Lions +1 point)
+            D. Everything in sight - I need to have it right away  (Brawn Badgers +1 point)
+
+        You are going to have a challenging exam tomorrow, what would you do?
+            A. Study alone by myself (Eager Eagles +1 point)
+            B. Study in group with friend (Brawn Badgers +1 point)
+            C. See if it is possible to take some short cut and make some cheat sheets(Sneaky Serpent +1 point)
+            D. I do not study extra for it. It is what it is (Proud Lions +1 point)
+
+        What is your favorite weather?
+            A. Warm and Sunny (Proud Lions +1 point)
+            B. Cold and Rainy (Sneaky Serpent +1 point)
+            C. Windy and Chilly (Eager Eagles +1 point)
+            D. Cloudy and dry (Brawn Badgers +1 point)
+
+        You are nor expecting anything but receiving a package at your door. What do you think it will be?
+            A. A prank from your neighbors (Sneaky Serpent +1 point)
+            B. A surprising gift from a friend (Proud Lions +1 point)
+            C. Something delivered to the wrong address (Eager Eagles +1 point)
+            D. Something you ordered long ago but forgot (Brawn Badgers +1 point)
